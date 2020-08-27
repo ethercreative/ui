@@ -1,0 +1,26 @@
+{
+  "name": "ether-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/ethercreative/ui",
+  "author": "James Edmonston",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc src/index.ts --outDir dist --jsx react --lib ES2015 --declaration"
+  },
+  "prepublish": "tsc src/index.ts --outDir dist --jsx react --lib ES2015 --declaration",
+  "devDependencies": {
+    "@types/react": "^16.9.48",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "eslint": "^7.7.0",
+    "eslint-config-universe": "^4.0.0",
+    "prettier": "^2.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^4.0.2"
+  }
+}
