@@ -434,6 +434,7 @@ const Spacing: React.FC<Props> = ({
   marginX,
   marginY,
   className,
+  style,
   children,
 }) => {
   let computedClass = '';
@@ -494,7 +495,11 @@ const Spacing: React.FC<Props> = ({
     computedClass += ` ${MARGIN_Y[marginY]}`;
   }
 
-  return <div className={`${computedClass} ${className}`}>{children}</div>;
+  return (
+    <div className={`${computedClass} ${className}`} style={style}>
+      {children}
+    </div>
+  );
 };
 
 export default Spacing;

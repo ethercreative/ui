@@ -39,6 +39,7 @@ const List: React.FC<Props> = ({
   mode = 'none',
   gap,
   className,
+  style,
   children,
 }) => {
   let computedClass = '';
@@ -55,10 +56,18 @@ const List: React.FC<Props> = ({
 
   switch (order) {
     case 'ordered':
-      return <ol className={compiledClass}>{children}</ol>;
+      return (
+        <ol className={compiledClass} style={style}>
+          {children}
+        </ol>
+      );
 
     default:
-      return <ul className={compiledClass}>{children}</ul>;
+      return (
+        <ul className={compiledClass} style={style}>
+          {children}
+        </ul>
+      );
   }
 };
 

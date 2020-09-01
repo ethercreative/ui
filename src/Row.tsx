@@ -26,7 +26,7 @@ interface Props {
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
 }
 
-const Row: React.FC<Props> = ({ span, start, className, children }) => {
+const Row: React.FC<Props> = ({ span, start, className, style, children }) => {
   let computedClass = '';
 
   if (span) {
@@ -37,7 +37,11 @@ const Row: React.FC<Props> = ({ span, start, className, children }) => {
     computedClass += ` ${START[start]}`;
   }
 
-  return <div className={`${computedClass} ${className}`}>{children}</div>;
+  return (
+    <div className={`${computedClass} ${className}`} style={style}>
+      {children}
+    </div>
+  );
 };
 
 export default Row;

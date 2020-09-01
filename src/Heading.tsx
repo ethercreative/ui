@@ -48,6 +48,7 @@ const Heading: React.FC<Props> = ({
   leading,
   tracking,
   className,
+  style,
   children,
 }) => {
   let computedClass = '';
@@ -68,22 +69,46 @@ const Heading: React.FC<Props> = ({
 
   switch (level) {
     case '2':
-      return <h2 className={compiledClass}>{children}</h2>;
+      return (
+        <h2 className={compiledClass} style={style}>
+          {children}
+        </h2>
+      );
 
     case '3':
-      return <h3 className={compiledClass}>{children}</h3>;
+      return (
+        <h3 className={compiledClass} style={style}>
+          {children}
+        </h3>
+      );
 
     case '4':
-      return <h4 className={compiledClass}>{children}</h4>;
+      return (
+        <h4 className={compiledClass} style={style}>
+          {children}
+        </h4>
+      );
 
     case '5':
-      return <h5 className={compiledClass}>{children}</h5>;
+      return (
+        <h5 className={compiledClass} style={style}>
+          {children}
+        </h5>
+      );
 
     case '6':
-      return <h6 className={compiledClass}>{children}</h6>;
+      return (
+        <h6 className={compiledClass} style={style}>
+          {children}
+        </h6>
+      );
 
     default:
-      return <h1 className={compiledClass}>{children}</h1>;
+      return (
+        <h1 className={compiledClass} style={style}>
+          {children}
+        </h1>
+      );
   }
 };
 

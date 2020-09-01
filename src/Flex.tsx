@@ -45,6 +45,7 @@ const Flex: React.FC<Props> = ({
   alignX,
   alignY,
   className,
+  style,
   children,
 }) => {
   let computedClass = 'flex';
@@ -65,7 +66,11 @@ const Flex: React.FC<Props> = ({
     computedClass += ` ${ALIGN_Y[alignY]}`;
   }
 
-  return <div className={`${computedClass} ${className}`}>{children}</div>;
+  return (
+    <div className={`${computedClass} ${className}`} style={style}>
+      {children}
+    </div>
+  );
 };
 
 export default Flex;

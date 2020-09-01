@@ -21,7 +21,7 @@ const Image: React.FC<Props> = ({
   display = 'inline',
   fill = 'cover',
   className,
-  style = {},
+  style,
 }) => {
   let computedClass = '';
 

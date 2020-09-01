@@ -101,6 +101,7 @@ const Grid: React.FC<Props> = ({
   gapX,
   gapY,
   className,
+  style,
   children,
 }) => {
   let computedClass = 'grid';
@@ -125,7 +126,11 @@ const Grid: React.FC<Props> = ({
     computedClass += ` ${GAP_Y[gapY]}`;
   }
 
-  return <div className={`${computedClass} ${className}`}>{children}</div>;
+  return (
+    <div className={`${computedClass} ${className}`} style={style}>
+      {children}
+    </div>
+  );
 };
 
 export default Grid;

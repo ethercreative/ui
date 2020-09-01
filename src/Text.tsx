@@ -44,6 +44,7 @@ const Text: React.FC<Props> = ({
   leading,
   tracking,
   className,
+  style,
   children,
 }) => {
   let computedClass = '';
@@ -60,7 +61,11 @@ const Text: React.FC<Props> = ({
     computedClass += ` ${TRACKING[tracking]}`;
   }
 
-  return <p className={`${computedClass} ${className}`}>{children}</p>;
+  return (
+    <p className={`${computedClass} ${className}`} style={style}>
+      {children}
+    </p>
+  );
 };
 
 export default Text;
