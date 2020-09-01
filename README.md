@@ -2,14 +2,24 @@
 
 A set of Tailwind-styled React components for composing UIs.
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Adding to PurgeCSS](#adding-to-purgecss)
+
 ## Prerequisites
 
 - Tailwind must be configured in your project (see [Get Started](https://tailwindcss.com/docs/installation)).
 
 ## Installation
 
-```
+```bash
+# Using Yarn
 yarn add ether-ui
+
+# Using NPM
 npm install ether-ui
 ```
 
@@ -54,7 +64,7 @@ In the previous example, you might assume that the `gap` property on the `<Grid 
 
 Tailwind by default (see [Customising Spacing](https://tailwindcss.com/docs/customizing-spacing)) uses `4px` increments for its spacing values (e.g. `.m-1` and `.m-3` apply `4px` and `12px` margin, respectively).
 
-## Adding `ether-ui` to [PurgeCSS](https://github.com/FullHuman/purgecss)
+## Adding to [PurgeCSS](https://github.com/FullHuman/purgecss)
 
 In your `tailwind.config.js` file, add `./node_modules/ether-ui/**/*.tsx` to your `purge` property, e.g:
 
