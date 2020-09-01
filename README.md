@@ -67,6 +67,7 @@ Tailwind by default (see [Customising Spacing](https://tailwindcss.com/docs/cust
 
 ## Components
 
+- [All Components](#all-components)
 - [Column](#column)
 - [Container](#container)
 - [Flex](#flex)
@@ -80,7 +81,7 @@ Tailwind by default (see [Customising Spacing](https://tailwindcss.com/docs/cust
 - [Spacing](#spacing)
 - [Text](#text)
 
-## All Components
+### All Components
 
 All components share the following properties:
 
@@ -97,12 +98,22 @@ All components share the following properties:
 | `start`  | `1`...`13` | `undefined` |
 
 ```javascript
+import { Column } from 'ether-ui';
+
 <Column span='7' start='3'>
   ...
-</Column>
+</Column>;
 ```
 
 ### Container
+
+No properties - a wrapper around the Tailwind `.container` class.
+
+```javascript
+import { Container } from 'ether-ui';
+
+<Container>...</Container>;
+```
 
 ### Flex
 
@@ -110,19 +121,95 @@ All components share the following properties:
 
 ### Heading
 
+| Property   | Value                                                                                                             | Default     |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
+| `level`    | `1`<br/>`2`<br/>`3`<br/>`4`<br/>`5`<br/>`6`                                                                       | `1`         |
+| `size`     | `xs`<br/>`sm`<br/>`base`<br/>`lg`<br/>`xl`<br/>`2xl`<br/>`3xl`<br/>`4xl`<br/>`5xl`<br/>`6xl`                      | `base`      |
+| `weight`   | `hairline`<br/>`thin`<br/>`light`<br/>`normal`<br/>`medium`<br/>`semibold`<br/>`bold`<br/>`extrabold`<br/>`black` | `undefined` |
+| `align`    | `left`<br/>`right`<br/>`center`                                                                                   | `undefined` |
+| `leading`  | `none`<br/>`tight`<br/>`snug`<br/>`normal`<br/>`relaxed`<br/>`loose`                                              | `undefined` |
+| `tracking` | `tighter`<br/>`tight`<br/>`normal`<br/>`wide`<br/>`wider`<br/>`widest`                                            | `undefined` |
+
+```javascript
+import { Heading } from 'ether-ui';
+
+<Heading size='3xl' weight='bold' align='center' leading='snug' tracking='wide'>
+  ...
+</Heading>;
+```
+
 ### Image
 
 ### List
 
+| Property | Value                                                                                                                                         | Default     |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `order`  | `unordered`<br/>`ordered`                                                                                                                     | `unordered` |
+| `mode`   | `disc`<br/>`decimal`<br/>`none`                                                                                                               | `none`      |
+| `gap`    | `1`<br/>`2`<br/>`3`<br/>`4`<br/>`5`<br/>`6`<br/>`8`<br/>`10`<br/>`12`<br/>`16`<br/>`20`<br/>`24`<br/>`32`<br/>`40`<br/>`48`<br/>`56`<br/>`64` | `undefined` |
+
+```javascript
+import { List } from 'ether-ui';
+
+<List order='ordered' mode='decimal' gap='3'>
+  ...
+</List>;
+```
+
 ### ListItem
+
+No properties - a wrapper around `<li />`.
+
+```javascript
+import { ListItem } from 'ether-ui';
+
+<ListItem>...</ListItem>;
+```
 
 ### Row
 
+| Property | Value     | Default     |
+| -------- | --------- | ----------- |
+| `span`   | `1`...`6` | `undefined` |
+| `start`  | `1`...`7` | `undefined` |
+
+```javascript
+import { Row } from 'ether-ui';
+
+<Row span='3' start='1'>
+  ...
+</Row>;
+```
+
 ### Scroll
+
+No properties - an element that fills its parent and enables overflow.
+
+```javascript
+import { Scroll } from 'ether-ui';
+
+<Scroll>...</Scroll>;
+```
 
 ### Spacing
 
 ### Text
+
+| Property   | Value                                                                                                             | Default     |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
+| `size`     | `xs`<br/>`sm`<br/>`base`<br/>`lg`<br/>`xl`<br/>`2xl`<br/>`3xl`<br/>`4xl`<br/>`5xl`<br/>`6xl`                      | `base`      |
+| `weight`   | `hairline`<br/>`thin`<br/>`light`<br/>`normal`<br/>`medium`<br/>`semibold`<br/>`bold`<br/>`extrabold`<br/>`black` | `undefined` |
+| `align`    | `left`<br/>`right`<br/>`center`                                                                                   | `undefined` |
+| `leading`  | `none`<br/>`tight`<br/>`snug`<br/>`normal`<br/>`relaxed`<br/>`loose`                                              | `undefined` |
+| `tracking` | `tighter`<br/>`tight`<br/>`normal`<br/>`wide`<br/>`wider`<br/>`widest`                                            | `undefined` |
+
+```javascript
+import { Text } from 'ether-ui';
+
+<Text size='lg' weight='semibold' align='center' leading='snug' tracking='wide'>
+  ...
+</Text>;
+```
 
 ## Adding to [PurgeCSS](https://github.com/FullHuman/purgecss)
 
