@@ -28,6 +28,18 @@ const ALIGN = {
   center: 'text-center',
 };
 
+const WEIGHT = {
+  hairline: 'text-hairline',
+  thin: 'text-thin',
+  light: 'text-light',
+  normal: 'text-normal',
+  medium: 'text-medium',
+  semibold: 'text-semibold',
+  bold: 'text-bold',
+  extrabold: 'text-extrabold',
+  black: 'text-black',
+};
+
 const LEADING = {
   none: 'leading-none',
   tight: 'leading-tight',
@@ -49,6 +61,7 @@ const TRACKING = {
 interface Props {
   level?: keyof typeof LEVELS;
   size?: keyof typeof SIZES;
+  weight?: keyof typeof WEIGHT;
   align?: keyof typeof ALIGN;
   leading?: keyof typeof LEADING;
   tracking?: keyof typeof TRACKING;
@@ -59,6 +72,7 @@ interface Props {
 const Heading: React.FC<Props> = ({
   level = '1',
   size = 'base',
+  weight,
   align,
   leading,
   tracking,
@@ -70,6 +84,10 @@ const Heading: React.FC<Props> = ({
 
   if (size) {
     computedClass += ` ${SIZES[size]}`;
+  }
+
+  if (weight) {
+    computedClass += ` ${WEIGHT[weight]}`;
   }
 
   if (align) {

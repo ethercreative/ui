@@ -13,6 +13,18 @@ const SIZES = {
   '6xl': 'text-6xl',
 };
 
+const WEIGHT = {
+  hairline: 'text-hairline',
+  thin: 'text-thin',
+  light: 'text-light',
+  normal: 'text-normal',
+  medium: 'text-medium',
+  semibold: 'text-semibold',
+  bold: 'text-bold',
+  extrabold: 'text-extrabold',
+  black: 'text-black',
+};
+
 const ALIGN = {
   left: 'text-left',
   right: 'text-right',
@@ -39,6 +51,7 @@ const TRACKING = {
 
 interface Props {
   size?: keyof typeof SIZES;
+  weight?: keyof typeof WEIGHT;
   align?: keyof typeof ALIGN;
   leading?: keyof typeof LEADING;
   tracking?: keyof typeof TRACKING;
@@ -48,6 +61,7 @@ interface Props {
 
 const Text: React.FC<Props> = ({
   size = 'base',
+  weight,
   align,
   leading,
   tracking,
@@ -59,6 +73,10 @@ const Text: React.FC<Props> = ({
 
   if (size) {
     computedClass += ` ${SIZES[size]}`;
+  }
+
+  if (weight) {
+    computedClass += ` ${WEIGHT[weight]}`;
   }
 
   if (align) {
