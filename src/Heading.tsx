@@ -22,6 +22,12 @@ const SIZES = {
   '6xl': 'text-6xl',
 };
 
+const ALIGN = {
+  left: 'text-left',
+  right: 'text-right',
+  center: 'text-center',
+};
+
 const LEADING = {
   none: 'leading-none',
   tight: 'leading-tight',
@@ -43,6 +49,7 @@ const TRACKING = {
 interface Props {
   level?: keyof typeof LEVELS;
   size?: keyof typeof SIZES;
+  align?: keyof typeof ALIGN;
   leading?: keyof typeof LEADING;
   tracking?: keyof typeof TRACKING;
   className?: React.HTMLAttributes<HTMLHeadingElement>['className'];
@@ -52,6 +59,7 @@ interface Props {
 const Heading: React.FC<Props> = ({
   level = '1',
   size = 'base',
+  align,
   leading,
   tracking,
   className,
@@ -62,6 +70,10 @@ const Heading: React.FC<Props> = ({
 
   if (size) {
     computedClass += ` ${SIZES[size]}`;
+  }
+
+  if (align) {
+    computedClass += ` ${ALIGN[align]}`;
   }
 
   if (leading) {
