@@ -38,8 +38,8 @@ interface Props {
   size?: keyof typeof SIZES;
   leading?: keyof typeof LEADING;
   tracking?: keyof typeof TRACKING;
-  className?: React.HTMLAttributes<HTMLParagraphElement>['className'];
-  style?: React.HTMLAttributes<HTMLParagraphElement>['style'];
+  className?: React.HTMLAttributes<HTMLHeadingElement>['className'];
+  style?: React.HTMLAttributes<HTMLHeadingElement>['style'];
 }
 
 const Heading: React.FC<Props> = ({
