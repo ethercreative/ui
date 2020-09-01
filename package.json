@@ -8,8 +8,7 @@
   "author": "James Edmonston",
   "license": "MIT",
   "scripts": {
-    "build": "tsc src/index.ts --outDir dist --jsx react --lib ES2015 --declaration",
-    "publish": "tsc src/index.ts --outDir dist --jsx react --lib ES2015 --declaration && npm publish"
+    "build": "tsc src/index.ts --outDir dist --jsx react --lib ES2015 --declaration"
   },
   "prepublish": "tsc src/index.ts --outDir dist --jsx react --lib ES2015 --declaration",
   "devDependencies": {
