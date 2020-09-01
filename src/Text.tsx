@@ -32,9 +32,9 @@ const TRACKING = {
 };
 
 interface Props {
-  size: keyof typeof SIZES;
-  leading: keyof typeof LEADING;
-  tracking: keyof typeof TRACKING;
+  size?: keyof typeof SIZES;
+  leading?: keyof typeof LEADING;
+  tracking?: keyof typeof TRACKING;
   className?: React.HTMLAttributes<HTMLParagraphElement>['className'];
   style?: React.HTMLAttributes<HTMLParagraphElement>['style'];
 }
