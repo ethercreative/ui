@@ -22,22 +22,22 @@ const SIZES = {
   '6xl': 'text-6xl',
 };
 
+const WEIGHT = {
+  hairline: 'font-hairline',
+  thin: 'font-thin',
+  light: 'font-light',
+  normal: 'font-normal',
+  medium: 'font-medium',
+  semibold: 'font-semibold',
+  bold: 'font-bold',
+  extrabold: 'font-extrabold',
+  black: 'font-black',
+};
+
 const ALIGN = {
   left: 'text-left',
   right: 'text-right',
   center: 'text-center',
-};
-
-const WEIGHT = {
-  hairline: 'text-hairline',
-  thin: 'text-thin',
-  light: 'text-light',
-  normal: 'text-normal',
-  medium: 'text-medium',
-  semibold: 'text-semibold',
-  bold: 'text-bold',
-  extrabold: 'text-extrabold',
-  black: 'text-black',
 };
 
 const LEADING = {
