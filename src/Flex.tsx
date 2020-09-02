@@ -27,7 +27,7 @@ const ALIGN_Y = {
   end: 'items-end',
   center: 'items-center',
   base: 'items-between',
-  stretch: 'items-around',
+  stretch: 'items-stretch',
 };
 
 interface Props {
