@@ -93,7 +93,7 @@ const Position: React.FC<Props> = ({
   }
 
   if (top) {
-    computedClass += ` ${TOP[too]}`;
+    computedClass += ` ${TOP[top]}`;
   }
 
   if (bottom) {
