@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const DIRECTIONS = {
+const DIRECTION = {
   row: 'flex-row',
   'row-reverse': 'flex-row-reverse',
   col: 'flex-col',
@@ -31,7 +31,7 @@ const ALIGN_Y = {
 };
 
 interface Props {
-  direction?: keyof typeof DIRECTIONS;
+  direction?: keyof typeof DIRECTION;
   wrap?: keyof typeof WRAP;
   alignX?: keyof typeof ALIGN_X;
   alignY?: keyof typeof ALIGN_Y;
@@ -51,7 +51,7 @@ const Flex: React.FC<Props> = ({
   let computedClass = 'flex';
 
   if (direction) {
-    computedClass += ` ${DIRECTIONS[direction]}`;
+    computedClass += ` ${DIRECTION[direction]}`;
   }
 
   if (wrap) {

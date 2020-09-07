@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const LEVELS = {
+const LEVEL = {
   '1': '1',
   '2': '2',
   '3': '3',
@@ -9,7 +9,7 @@ const LEVELS = {
   '6': '6',
 };
 
-const SIZES = {
+const SIZE = {
   xs: 'text-xs',
   sm: 'text-sm',
   base: 'text-base',
@@ -59,8 +59,8 @@ const TRACKING = {
 };
 
 interface Props {
-  level?: keyof typeof LEVELS;
-  size?: keyof typeof SIZES;
+  level?: keyof typeof LEVEL;
+  size?: keyof typeof SIZE;
   weight?: keyof typeof WEIGHT;
   align?: keyof typeof ALIGN;
   leading?: keyof typeof LEADING;
@@ -83,7 +83,7 @@ const Heading: React.FC<Props> = ({
   let computedClass = '';
 
   if (size) {
-    computedClass += ` ${SIZES[size]}`;
+    computedClass += ` ${SIZE[size]}`;
   }
 
   if (weight) {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const COLUMNS = {
+const COLUMN = {
   '1': 'grid-cols-1',
   '2': 'grid-cols-2',
   '3': 'grid-cols-3',
@@ -15,7 +15,7 @@ const COLUMNS = {
   '12': 'grid-cols-12',
 };
 
-const ROWS = {
+const ROW = {
   '1': 'grid-rows-1',
   '2': 'grid-rows-2',
   '3': 'grid-rows-3',
@@ -85,8 +85,8 @@ const GAP_Y = {
 };
 
 interface Props {
-  columns?: keyof typeof COLUMNS;
-  rows?: keyof typeof ROWS;
+  columns?: keyof typeof COLUMN;
+  rows?: keyof typeof ROW;
   gap?: keyof typeof GAP;
   gapX?: keyof typeof GAP_X;
   gapY?: keyof typeof GAP_Y;
@@ -107,11 +107,11 @@ const Grid: React.FC<Props> = ({
   let computedClass = 'grid';
 
   if (columns) {
-    computedClass += ` ${COLUMNS[columns]}`;
+    computedClass += ` ${COLUMN[columns]}`;
   }
 
   if (rows) {
-    computedClass += ` ${ROWS[rows]}`;
+    computedClass += ` ${ROW[rows]}`;
   }
 
   if (gap) {

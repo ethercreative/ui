@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const SIZES = {
+const SIZE = {
   xs: 'text-xs',
   sm: 'text-sm',
   base: 'text-base',
@@ -50,7 +50,7 @@ const TRACKING = {
 };
 
 interface Props {
-  size?: keyof typeof SIZES;
+  size?: keyof typeof SIZE;
   weight?: keyof typeof WEIGHT;
   align?: keyof typeof ALIGN;
   leading?: keyof typeof LEADING;
@@ -72,7 +72,7 @@ const Text: React.FC<Props> = ({
   let computedClass = '';
 
   if (size) {
-    computedClass += ` ${SIZES[size]}`;
+    computedClass += ` ${SIZE[size]}`;
   }
 
   if (weight) {
