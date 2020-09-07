@@ -6,6 +6,26 @@ const MODE = {
   relative: 'relative',
 };
 
+const MODES = {
+  default: MODE,
+  sm: {
+    absolute: 'sm:absolute',
+    relative: 'sm:relative',
+  },
+  md: {
+    absolute: 'md:absolute',
+    relative: 'md:relative',
+  },
+  lg: {
+    absolute: 'lg:absolute',
+    relative: 'lg:relative',
+  },
+  xl: {
+    absolute: 'xl:absolute',
+    relative: 'xl:relative',
+  },
+};
+
 const INSET = {
   auto: 'inset-auto',
   '0': 'inset-0',
@@ -42,7 +62,15 @@ const BOTTOM = {
 };
 
 interface Props {
-  mode?: keyof typeof MODE;
+  mode:
+    | keyof typeof MODE
+    | {
+        default?: keyof typeof MODES.default;
+        sm?: keyof typeof MODES.sm;
+        md?: keyof typeof MODES.md;
+        lg?: keyof typeof MODES.lg;
+        xl?: keyof typeof MODES.xl;
+      };
   inset?: keyof typeof INSET;
   insetX?: keyof typeof INSET_X;
   insetY?: keyof typeof INSET_Y;
@@ -70,7 +98,13 @@ const Position: React.FC<Props> = ({
   let computedClass = '';
 
   if (mode) {
-    computedClass += ` ${MODE[mode]}`;
+    if (typeof mode === 'string') {
+      computedClass += ` ${MODE[mode]}`;
+    } else {
+      Object.keys(mode).forEach((key) => {
+        computedClass += ` ${MODES[key][mode[key]]}`;
+      });
+    }
   }
 
   if (inset) {

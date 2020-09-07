@@ -23,6 +23,58 @@ const SIZE = {
   '6xl': 'text-6xl',
 };
 
+const SIZES = {
+  default: SIZE,
+  sm: {
+    xs: 'sm:text-xs',
+    sm: 'sm:text-sm',
+    base: 'sm:text-base',
+    lg: 'sm:text-lg',
+    xl: 'sm:text-xl',
+    '2xl': 'sm:text-2xl',
+    '3xl': 'sm:text-3xl',
+    '4xl': 'sm:text-4xl',
+    '5xl': 'sm:text-5xl',
+    '6xl': 'sm:text-6xl',
+  },
+  md: {
+    xs: 'md:text-xs',
+    sm: 'md:text-sm',
+    base: 'md:text-base',
+    lg: 'md:text-lg',
+    xl: 'md:text-xl',
+    '2xl': 'md:text-2xl',
+    '3xl': 'md:text-3xl',
+    '4xl': 'md:text-4xl',
+    '5xl': 'md:text-5xl',
+    '6xl': 'md:text-6xl',
+  },
+  lg: {
+    xs: 'lg:text-xs',
+    sm: 'lg:text-sm',
+    base: 'lg:text-base',
+    lg: 'lg:text-lg',
+    xl: 'lg:text-xl',
+    '2xl': 'lg:text-2xl',
+    '3xl': 'lg:text-3xl',
+    '4xl': 'lg:text-4xl',
+    '5xl': 'lg:text-5xl',
+    '6xl': 'lg:text-6xl',
+  },
+  xl: {
+    xs: 'xl:text-xs',
+    sm: 'xl:text-sm',
+    base: 'xl:text-base',
+    lg: 'xl:text-lg',
+    xl: 'xl:text-xl',
+    '2xl': 'xl:text-2xl',
+    '3xl': 'xl:text-3xl',
+    '4xl': 'xl:text-4xl',
+    '5xl': 'xl:text-5xl',
+    '6xl': 'xl:text-6xl',
+  },
+};
+
 const WEIGHT = {
   hairline: 'font-hairline',
   thin: 'font-thin',
@@ -61,7 +113,15 @@ const TRACKING = {
 
 interface Props {
   level?: keyof typeof LEVEL;
-  size?: keyof typeof SIZE;
+  size?:
+    | keyof typeof SIZE
+    | {
+        default?: keyof typeof SIZES.default;
+        sm?: keyof typeof SIZES.sm;
+        md?: keyof typeof SIZES.md;
+        lg?: keyof typeof SIZES.lg;
+        xl?: keyof typeof SIZES.xl;
+      };
   weight?: keyof typeof WEIGHT;
   align?: keyof typeof ALIGN;
   leading?: keyof typeof LEADING;
@@ -84,7 +144,13 @@ const Heading: React.FC<Props> = ({
   let computedClass = '';
 
   if (size) {
-    computedClass += ` ${SIZE[size]}`;
+    if (typeof size === 'string') {
+      computedClass += ` ${SIZE[size]}`;
+    } else {
+      Object.keys(size).forEach((key) => {
+        computedClass += ` ${SIZES[key][size[key]]}`;
+      });
+    }
   }
 
   if (weight) {
