@@ -78,7 +78,7 @@ Tailwind by default (see [Customising Spacing](https://tailwindcss.com/docs/cust
 - [ListItem](#list-item)
 - [Row](#row)
 - [Scroll](#scroll)
-- [Spacing](#spacing)
+- [Space](#space)
 - [Text](#text)
 
 ### All Components
@@ -191,7 +191,7 @@ import { Scroll } from 'ether-ui';
 <Scroll>...</Scroll>;
 ```
 
-### Spacing
+### Space
 
 ### Text
 

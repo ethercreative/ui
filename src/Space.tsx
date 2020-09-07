@@ -419,7 +419,7 @@ interface Props {
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
 }
 
-const Spacing: React.FC<Props> = ({
+const Space: React.FC<Props> = ({
   padding,
   paddingLeft,
   paddingRight,
@@ -503,4 +503,4 @@ const Spacing: React.FC<Props> = ({
   );
 };
 
-export default Spacing;
+export default Space;

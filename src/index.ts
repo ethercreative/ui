@@ -9,5 +9,5 @@ export { default as ListItem } from './ListItem';
 export { default as Position } from './Position';
 export { default as Row } from './Row';
 export { default as Scroll } from './Scroll';
-export { default as Spacing } from './Spacing';
+export { default as Space } from './Space';
 export { default as Text } from './Text';
