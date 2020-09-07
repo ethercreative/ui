@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const MODE = {
   disc: 'list-disc',
@@ -52,7 +53,7 @@ const List: React.FC<Props> = ({
     computedClass += ` ${GAP[gap]}`;
   }
 
-  const compiledClass = `${computedClass} ${className}`;
+  const compiledClass = classify([computedClass, className]);
 
   switch (order) {
     case 'ordered':

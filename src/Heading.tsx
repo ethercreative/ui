@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const LEVEL = {
   '1': '1',
@@ -102,7 +103,7 @@ const Heading: React.FC<Props> = ({
     computedClass += ` ${TRACKING[tracking]}`;
   }
 
-  const compiledClass = `${computedClass} ${className}`;
+  const compiledClass = classify([computedClass, className]);
 
   switch (level) {
     case '2':

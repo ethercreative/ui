@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 interface Props {
   src: string;
@@ -44,7 +45,7 @@ const Image: React.FC<Props> = ({
       loading={loading}
       width={width}
       height={height}
-      className={`${computedClass} ${className}`}
+      className={classify([computedClass, className])}
       style={style}
     />
   );

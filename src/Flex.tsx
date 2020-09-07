@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const DIRECTION = {
   row: 'flex-row',
@@ -67,7 +68,7 @@ const Flex: React.FC<Props> = ({
   }
 
   return (
-    <div className={`${computedClass} ${className}`} style={style}>
+    <div className={classify([computedClass, className])} style={style}>
       {children}
     </div>
   );

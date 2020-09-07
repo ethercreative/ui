@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const SPAN = {
   '1': 'row-span-1',
@@ -38,7 +39,7 @@ const Row: React.FC<Props> = ({ span, start, className, style, children }) => {
   }
 
   return (
-    <div className={`${computedClass} ${className}`} style={style}>
+    <div className={classify([computedClass, className])} style={style}>
       {children}
     </div>
   );

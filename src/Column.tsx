@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const SPAN = {
   '1': 'col-span-1',
@@ -56,7 +57,7 @@ const Column: React.FC<Props> = ({
   }
 
   return (
-    <div className={`${computedClass} ${className}`} style={style}>
+    <div className={classify([computedClass, className])} style={style}>
       {children}
     </div>
   );

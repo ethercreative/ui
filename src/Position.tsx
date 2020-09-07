@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const MODE = {
   absolute: 'absolute',
@@ -101,7 +102,7 @@ const Position: React.FC<Props> = ({
   }
 
   return (
-    <div className={`${computedClass} ${className}`} style={style}>
+    <div className={classify([computedClass, className])} style={style}>
       {children}
     </div>
   );

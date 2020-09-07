@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const COLUMN = {
   '1': 'grid-cols-1',
@@ -127,7 +128,7 @@ const Grid: React.FC<Props> = ({
   }
 
   return (
-    <div className={`${computedClass} ${className}`} style={style}>
+    <div className={classify([computedClass, className])} style={style}>
       {children}
     </div>
   );

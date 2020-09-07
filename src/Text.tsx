@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { classify } from './helpers/classify';
 
 const SIZE = {
   xs: 'text-xs',
@@ -92,7 +93,7 @@ const Text: React.FC<Props> = ({
   }
 
   return (
-    <p className={`${computedClass} ${className}`} style={style}>
+    <p className={classify([computedClass, className])} style={style}>
       {children}
     </p>
   );
