@@ -31,11 +31,53 @@ const ALIGN_Y = {
   stretch: 'items-stretch',
 };
 
+const SPACE_X = {
+  '1': 'space-x-1',
+  '2': 'space-x-2',
+  '3': 'space-x-3',
+  '4': 'space-x-4',
+  '5': 'space-x-5',
+  '6': 'space-x-6',
+  '8': 'space-x-8',
+  '10': 'space-x-10',
+  '12': 'space-x-12',
+  '16': 'space-x-16',
+  '20': 'space-x-20',
+  '24': 'space-x-24',
+  '32': 'space-x-32',
+  '40': 'space-x-40',
+  '48': 'space-x-48',
+  '56': 'space-x-56',
+  '64': 'space-x-64',
+};
+
+const SPACE_Y = {
+  '1': 'space-x-1',
+  '2': 'space-x-2',
+  '3': 'space-x-3',
+  '4': 'space-x-4',
+  '5': 'space-x-5',
+  '6': 'space-x-6',
+  '8': 'space-x-8',
+  '10': 'space-x-10',
+  '12': 'space-x-12',
+  '16': 'space-x-16',
+  '20': 'space-x-20',
+  '24': 'space-x-24',
+  '32': 'space-x-32',
+  '40': 'space-x-40',
+  '48': 'space-x-48',
+  '56': 'space-x-56',
+  '64': 'space-x-64',
+};
+
 interface Props {
   direction?: keyof typeof DIRECTION;
   wrap?: keyof typeof WRAP;
   alignX?: keyof typeof ALIGN_X;
   alignY?: keyof typeof ALIGN_Y;
+  spaceX?: keyof typeof SPACE_X;
+  spaceY?: keyof typeof SPACE_Y;
   className?: React.HTMLAttributes<HTMLUListElement>['className'];
   style?: React.HTMLAttributes<HTMLUListElement>['style'];
 }
@@ -45,6 +87,8 @@ const Flex: React.FC<Props> = ({
   wrap,
   alignX,
   alignY,
+  spaceX,
+  spaceY,
   className,
   style,
   children,
@@ -65,6 +109,14 @@ const Flex: React.FC<Props> = ({
 
   if (alignY) {
     computedClass += ` ${ALIGN_Y[alignY]}`;
+  }
+
+  if (spaceX) {
+    computedClass += ` ${SPACE_X[spaceX]}`;
+  }
+
+  if (spaceY) {
+    computedClass += ` ${SPACE_Y[spaceY]}`;
   }
 
   return (
