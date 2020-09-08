@@ -43,6 +43,7 @@ const Image: React.FC<Props> = ({
       src={src}
       alt={alt}
       loading={loading}
+      decoding='async'
       width={width}
       height={height}
       className={classify([computedClass, className])}
