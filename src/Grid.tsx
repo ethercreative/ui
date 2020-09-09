@@ -26,6 +26,7 @@ const ROW = {
 };
 
 const GAP = {
+  '0': 'gap-0',
   '1': 'gap-1',
   '2': 'gap-2',
   '3': 'gap-3',
@@ -48,6 +49,7 @@ const GAP = {
 const GAPS = {
   default: GAP,
   sm: {
+    '0': 'sm:gap-0',
     '1': 'sm:gap-1',
     '2': 'sm:gap-2',
     '3': 'sm:gap-3',
@@ -67,6 +69,7 @@ const GAPS = {
     '64': 'sm:gap-64',
   },
   md: {
+    '0': 'md:gap-0',
     '1': 'md:gap-1',
     '2': 'md:gap-2',
     '3': 'md:gap-3',
@@ -86,6 +89,7 @@ const GAPS = {
     '64': 'md:gap-64',
   },
   lg: {
+    '0': 'lg:gap-0',
     '1': 'lg:gap-1',
     '2': 'lg:gap-2',
     '3': 'lg:gap-3',
@@ -105,6 +109,7 @@ const GAPS = {
     '64': 'lg:gap-64',
   },
   xl: {
+    '0': 'xl:gap-0',
     '1': 'xl:gap-1',
     '2': 'xl:gap-2',
     '3': 'xl:gap-3',
@@ -126,6 +131,7 @@ const GAPS = {
 };
 
 const GAP_X = {
+  '0': 'gap-x-0',
   '1': 'gap-x-1',
   '2': 'gap-x-2',
   '3': 'gap-x-3',
@@ -148,6 +154,7 @@ const GAP_X = {
 const GAPS_X = {
   default: GAP_X,
   sm: {
+    '0': 'sm:gap-x-0',
     '1': 'sm:gap-x-1',
     '2': 'sm:gap-x-2',
     '3': 'sm:gap-x-3',
@@ -167,6 +174,7 @@ const GAPS_X = {
     '64': 'sm:gap-x-64',
   },
   md: {
+    '0': 'md:gap-x-0',
     '1': 'md:gap-x-1',
     '2': 'md:gap-x-2',
     '3': 'md:gap-x-3',
@@ -186,6 +194,7 @@ const GAPS_X = {
     '64': 'md:gap-x-64',
   },
   lg: {
+    '0': 'lg:gap-x-0',
     '1': 'lg:gap-x-1',
     '2': 'lg:gap-x-2',
     '3': 'lg:gap-x-3',
@@ -205,6 +214,7 @@ const GAPS_X = {
     '64': 'lg:gap-x-64',
   },
   xl: {
+    '0': 'xl:gap-x-0',
     '1': 'xl:gap-x-1',
     '2': 'xl:gap-x-2',
     '3': 'xl:gap-x-3',
@@ -226,6 +236,7 @@ const GAPS_X = {
 };
 
 const GAP_Y = {
+  '0': 'gap-y-0',
   '1': 'gap-y-1',
   '2': 'gap-y-2',
   '3': 'gap-y-3',
@@ -248,6 +259,7 @@ const GAP_Y = {
 const GAPS_Y = {
   default: GAP_Y,
   sm: {
+    '0': 'sm:gap-y-0',
     '1': 'sm:gap-y-1',
     '2': 'sm:gap-y-2',
     '3': 'sm:gap-y-3',
@@ -267,6 +279,7 @@ const GAPS_Y = {
     '64': 'sm:gap-y-64',
   },
   md: {
+    '0': 'md:gap-y-0',
     '1': 'md:gap-y-1',
     '2': 'md:gap-y-2',
     '3': 'md:gap-y-3',
@@ -286,6 +299,7 @@ const GAPS_Y = {
     '64': 'md:gap-y-64',
   },
   lg: {
+    '0': 'lg:gap-y-0',
     '1': 'lg:gap-y-1',
     '2': 'lg:gap-y-2',
     '3': 'lg:gap-y-3',
@@ -305,6 +319,7 @@ const GAPS_Y = {
     '64': 'lg:gap-y-64',
   },
   xl: {
+    '0': 'xl:gap-y-0',
     '1': 'xl:gap-y-1',
     '2': 'xl:gap-y-2',
     '3': 'xl:gap-y-3',
