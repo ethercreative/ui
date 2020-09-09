@@ -23,12 +23,84 @@ const ALIGN_X = {
   evenly: 'justify-evenly',
 };
 
+const ALIGNS_X = {
+  default: ALIGN_X,
+  sm: {
+    start: 'sm:justify-start',
+    end: 'sm:justify-end',
+    center: 'sm:justify-center',
+    between: 'sm:justify-between',
+    around: 'sm:justify-around',
+    evenly: 'sm:justify-evenly',
+  },
+  md: {
+    start: 'md:justify-start',
+    end: 'md:justify-end',
+    center: 'md:justify-center',
+    between: 'md:justify-between',
+    around: 'md:justify-around',
+    evenly: 'md:justify-evenly',
+  },
+  lg: {
+    start: 'lg:justify-start',
+    end: 'lg:justify-end',
+    center: 'lg:justify-center',
+    between: 'lg:justify-between',
+    around: 'lg:justify-around',
+    evenly: 'lg:justify-evenly',
+  },
+  xl: {
+    start: 'xl:justify-start',
+    end: 'xl:justify-end',
+    center: 'xl:justify-center',
+    between: 'xl:justify-between',
+    around: 'xl:justify-around',
+    evenly: 'xl:justify-evenly',
+  },
+};
+
 const ALIGN_Y = {
   start: 'items-start',
   end: 'items-end',
   center: 'items-center',
   base: 'items-between',
   stretch: 'items-stretch',
+};
+
+const ALIGNS_Y = {
+  default: ALIGN_Y,
+  sm: {
+    start: 'sm:items-start',
+    end: 'sm:items-end',
+    center: 'sm:items-center',
+    between: 'sm:items-between',
+    around: 'sm:items-around',
+    evenly: 'sm:items-evenly',
+  },
+  md: {
+    start: 'md:items-start',
+    end: 'md:items-end',
+    center: 'md:items-center',
+    between: 'md:items-between',
+    around: 'md:items-around',
+    evenly: 'md:items-evenly',
+  },
+  lg: {
+    start: 'lg:items-start',
+    end: 'lg:items-end',
+    center: 'lg:items-center',
+    between: 'lg:items-between',
+    around: 'lg:items-around',
+    evenly: 'lg:items-evenly',
+  },
+  xl: {
+    start: 'xl:items-start',
+    end: 'xl:items-end',
+    center: 'xl:items-center',
+    between: 'xl:items-between',
+    around: 'xl:items-around',
+    evenly: 'xl:items-evenly',
+  },
 };
 
 const SPACE_X = {
@@ -234,8 +306,24 @@ const SPACES_Y = {
 interface Props {
   direction?: keyof typeof DIRECTION;
   wrap?: keyof typeof WRAP;
-  alignX?: keyof typeof ALIGN_X;
-  alignY?: keyof typeof ALIGN_Y;
+  alignX?:
+    | keyof typeof ALIGN_X
+    | {
+        default?: keyof typeof ALIGNS_X.default;
+        sm?: keyof typeof ALIGNS_X.sm;
+        md?: keyof typeof ALIGNS_X.md;
+        lg?: keyof typeof ALIGNS_X.lg;
+        xl?: keyof typeof ALIGNS_X.xl;
+      };
+  alignY?:
+    | keyof typeof ALIGN_Y
+    | {
+        default?: keyof typeof ALIGNS_Y.default;
+        sm?: keyof typeof ALIGNS_Y.sm;
+        md?: keyof typeof ALIGNS_Y.md;
+        lg?: keyof typeof ALIGNS_Y.lg;
+        xl?: keyof typeof ALIGNS_Y.xl;
+      };
   spaceX?:
     | keyof typeof SPACE_X
     | {
@@ -280,11 +368,23 @@ const Flex: React.FC<Props> = ({
   }
 
   if (alignX) {
-    computedClass += ` ${ALIGN_X[alignX]}`;
+    if (typeof alignX === 'string') {
+      computedClass += ` ${ALIGN_X[alignX]}`;
+    } else {
+      Object.keys(alignX).forEach((key) => {
+        computedClass += ` ${ALIGNS_X[key][alignX[key]]}`;
+      });
+    }
   }
 
   if (alignY) {
-    computedClass += ` ${ALIGN_Y[alignY]}`;
+    if (typeof alignY === 'string') {
+      computedClass += ` ${ALIGN_Y[alignY]}`;
+    } else {
+      Object.keys(alignY).forEach((key) => {
+        computedClass += ` ${ALIGNS_Y[key][alignY[key]]}`;
+      });
+    }
   }
 
   if (spaceX) {
