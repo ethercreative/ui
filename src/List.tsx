@@ -139,10 +139,10 @@ const List: React.FC<Props> = ({
 
   if (gap) {
     if (typeof gap === 'string') {
-      computedClass += ` ${GAP[gap]}`;
+      computedClass += ` grid ${GAP[gap]}`;
     } else {
       Object.keys(gap).forEach((key) => {
-        computedClass += ` ${GAPS[key][gap[key]]}`;
+        computedClass += ` grid ${GAPS[key][gap[key]]}`;
       });
     }
   }
