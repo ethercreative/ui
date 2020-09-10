@@ -2298,6 +2298,16 @@ const Space: React.FC<Props> = ({
     }
   }
 
+  if (margin) {
+    if (typeof margin === 'string') {
+      computedClass += ` ${MARGIN[margin]}`;
+    } else {
+      Object.keys(margin).forEach((key) => {
+        computedClass += ` ${MARGINS[key][margin[key]]}`;
+      });
+    }
+  }
+
   if (marginLeft) {
     if (typeof marginLeft === 'string') {
       computedClass += ` ${MARGIN_LEFT[marginLeft]}`;
