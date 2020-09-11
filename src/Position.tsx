@@ -4,6 +4,7 @@ import { classify } from './helpers/classify';
 const MODE = {
   absolute: 'absolute',
   relative: 'relative',
+  sticky: 'sticky',
 };
 
 const MODES = {
@@ -11,18 +12,22 @@ const MODES = {
   sm: {
     absolute: 'sm:absolute',
     relative: 'sm:relative',
+    sticky: 'sm:sticky',
   },
   md: {
     absolute: 'md:absolute',
     relative: 'md:relative',
+    sticky: 'md:sticky',
   },
   lg: {
     absolute: 'lg:absolute',
     relative: 'lg:relative',
+    sticky: 'lg:sticky',
   },
   xl: {
     absolute: 'xl:absolute',
     relative: 'xl:relative',
+    sticky: 'xl:sticky',
   },
 };
 
