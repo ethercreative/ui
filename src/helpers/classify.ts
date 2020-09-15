@@ -3,4 +3,6 @@ export const classify = (strings: (string | undefined)[]): string =>
     .filter((string) => string)
     .join(' ')
     .replace(/  /g, ' ')
+    .replace(/undefined/g, ' ')
+    .replace(/default:/g, '')
     .trim();

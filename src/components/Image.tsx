@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { classify } from './helpers/classify';
+import { classify } from '../helpers/classify';
 
 interface Props {
   src: string;
   alt: string;
   loading?: 'eager' | 'lazy';
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
   display?: 'inline' | 'fill';
   fill?: 'cover' | 'contain';
   className?: React.HTMLAttributes<HTMLImageElement>['className'];
