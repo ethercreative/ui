@@ -217,26 +217,6 @@ const margins = [
   '64',
 ];
 
-const negativeMargins = [
-  '-1',
-  '-2',
-  '-3',
-  '-4',
-  '-5',
-  '-6',
-  '-8',
-  '-10',
-  '-12',
-  '-16',
-  '-20',
-  '-24',
-  '-32',
-  '-40',
-  '-48',
-  '-56',
-  '-64',
-];
-
 const MARGIN: {
   [key: string]: string;
 } = {};
@@ -252,6 +232,7 @@ const MARGINS: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'm';
   MARGIN[margin] = `${prefix}-${margin}`;
+  MARGIN[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS[breakpoint]) {
@@ -259,19 +240,7 @@ margins.forEach((margin) => {
     }
 
     MARGINS[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
-
-negativeMargins.forEach((margin) => {
-  const prefix = '-m';
-  MARGIN[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS[breakpoint]) {
-      MARGINS[breakpoint] = {};
-    }
-
-    MARGINS[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS[breakpoint][`-${margin}`] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
@@ -290,6 +259,7 @@ const MARGINS_X: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'mx';
   MARGIN_X[margin] = `${prefix}-${margin}`;
+  MARGIN_X[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_X[breakpoint]) {
@@ -297,19 +267,7 @@ margins.forEach((margin) => {
     }
 
     MARGINS_X[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
-
-negativeMargins.forEach((margin) => {
-  const prefix = '-mx';
-  MARGIN_X[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_X[breakpoint]) {
-      MARGINS_X[breakpoint] = {};
-    }
-
-    MARGINS_X[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS_X[breakpoint][`-${margin}`] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
@@ -328,6 +286,7 @@ const MARGINS_Y: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'my';
   MARGIN_Y[margin] = `${prefix}-${margin}`;
+  MARGIN_Y[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_Y[breakpoint]) {
@@ -335,19 +294,7 @@ margins.forEach((margin) => {
     }
 
     MARGINS_Y[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
-
-negativeMargins.forEach((margin) => {
-  const prefix = '-my';
-  MARGIN_Y[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_Y[breakpoint]) {
-      MARGINS_Y[breakpoint] = {};
-    }
-
-    MARGINS_Y[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS_Y[breakpoint][`-${margin}`] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
@@ -366,6 +313,7 @@ const MARGINS_LEFT: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'ml';
   MARGIN_LEFT[margin] = `${prefix}-${margin}`;
+  MARGIN_LEFT[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_LEFT[breakpoint]) {
@@ -373,19 +321,10 @@ margins.forEach((margin) => {
     }
 
     MARGINS_LEFT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
 
-negativeMargins.forEach((margin) => {
-  const prefix = '-ml';
-  MARGIN_LEFT[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_LEFT[breakpoint]) {
-      MARGINS_LEFT[breakpoint] = {};
-    }
-
-    MARGINS_LEFT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS_LEFT[breakpoint][
+      `-${margin}`
+    ] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
@@ -404,6 +343,7 @@ const MARGINS_RIGHT: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'mr';
   MARGIN_RIGHT[margin] = `${prefix}-${margin}`;
+  MARGIN_RIGHT[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_RIGHT[breakpoint]) {
@@ -411,19 +351,10 @@ margins.forEach((margin) => {
     }
 
     MARGINS_RIGHT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
 
-negativeMargins.forEach((margin) => {
-  const prefix = '-mr';
-  MARGIN_RIGHT[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_RIGHT[breakpoint]) {
-      MARGINS_RIGHT[breakpoint] = {};
-    }
-
-    MARGINS_RIGHT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS_RIGHT[breakpoint][
+      `-${margin}`
+    ] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
@@ -442,6 +373,7 @@ const MARGINS_TOP: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'mt';
   MARGIN_TOP[margin] = `${prefix}-${margin}`;
+  MARGIN_TOP[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_TOP[breakpoint]) {
@@ -449,19 +381,10 @@ margins.forEach((margin) => {
     }
 
     MARGINS_TOP[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
 
-negativeMargins.forEach((margin) => {
-  const prefix = '-mt';
-  MARGIN_TOP[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_TOP[breakpoint]) {
-      MARGINS_TOP[breakpoint] = {};
-    }
-
-    MARGINS_TOP[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS_TOP[breakpoint][
+      `-${margin}`
+    ] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
@@ -480,6 +403,7 @@ const MARGINS_BOTTOM: BreakpointClasses = {
 margins.forEach((margin) => {
   const prefix = 'mb';
   MARGIN_BOTTOM[margin] = `${prefix}-${margin}`;
+  MARGIN_BOTTOM[`-${margin}`] = `-${prefix}-${margin}`;
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_BOTTOM[breakpoint]) {
@@ -487,19 +411,10 @@ margins.forEach((margin) => {
     }
 
     MARGINS_BOTTOM[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-  });
-});
 
-negativeMargins.forEach((margin) => {
-  const prefix = '-mb';
-  MARGIN_BOTTOM[margin] = `${prefix}-${margin}`;
-
-  breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_BOTTOM[breakpoint]) {
-      MARGINS_BOTTOM[breakpoint] = {};
-    }
-
-    MARGINS_BOTTOM[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    MARGINS_BOTTOM[breakpoint][
+      `-${margin}`
+    ] = `${breakpoint}:-${prefix}-${margin}`;
   });
 });
 
