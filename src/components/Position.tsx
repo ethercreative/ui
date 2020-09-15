@@ -215,7 +215,7 @@ interface Props {
         lg?: keyof typeof MODES.lg;
         xl?: keyof typeof MODES.xl;
       };
-  inset:
+  inset?:
     | keyof typeof INSET
     | {
         default?: keyof typeof INSETS.default;
@@ -224,7 +224,7 @@ interface Props {
         lg?: keyof typeof INSETS.lg;
         xl?: keyof typeof INSETS.xl;
       };
-  insetX:
+  insetX?:
     | keyof typeof INSET_X
     | {
         default?: keyof typeof INSETS_X.default;
@@ -233,7 +233,7 @@ interface Props {
         lg?: keyof typeof INSETS_X.lg;
         xl?: keyof typeof INSETS_X.xl;
       };
-  insetY:
+  insetY?:
     | keyof typeof INSET_Y
     | {
         default?: keyof typeof INSETS_Y.default;
@@ -242,7 +242,7 @@ interface Props {
         lg?: keyof typeof INSETS_Y.lg;
         xl?: keyof typeof INSETS_Y.xl;
       };
-  left:
+  left?:
     | keyof typeof LEFT
     | {
         default?: keyof typeof LEFTS.default;
@@ -251,7 +251,7 @@ interface Props {
         lg?: keyof typeof LEFTS.lg;
         xl?: keyof typeof LEFTS.xl;
       };
-  right:
+  right?:
     | keyof typeof RIGHT
     | {
         default?: keyof typeof RIGHTS.default;
@@ -260,7 +260,7 @@ interface Props {
         lg?: keyof typeof RIGHTS.lg;
         xl?: keyof typeof RIGHTS.xl;
       };
-  top:
+  top?:
     | keyof typeof TOP
     | {
         default?: keyof typeof TOPS.default;
@@ -269,7 +269,7 @@ interface Props {
         lg?: keyof typeof TOPS.lg;
         xl?: keyof typeof TOPS.xl;
       };
-  bottom:
+  bottom?:
     | keyof typeof BOTTOM
     | {
         default?: keyof typeof BOTTOMS.default;
