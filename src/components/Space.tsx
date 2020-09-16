@@ -3,6 +3,7 @@ import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const paddings = [
+  '0',
   '1',
   '2',
   '3',
@@ -198,6 +199,7 @@ paddings.forEach((padding) => {
 });
 
 const margins = [
+  '0',
   '1',
   '2',
   '3',

@@ -27,6 +27,7 @@ const ROW = {
 };
 
 const gaps = [
+  '0',
   '1',
   '2',
   '3',

@@ -9,6 +9,7 @@ const MODE = {
 };
 
 const gaps = [
+  '0',
   '1',
   '2',
   '3',
