@@ -10,3 +10,4 @@ export { default as Row } from './components/Row';
 export { default as Scroll } from './components/Scroll';
 export { default as Space } from './components/Space';
 export { default as Text } from './components/Text';
+export { default as Visible } from './components/Visible';
