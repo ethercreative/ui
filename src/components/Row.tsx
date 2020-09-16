@@ -19,7 +19,7 @@ const SPANS: BreakpointClasses = {
 };
 
 spans.forEach((span) => {
-  const prefix = 'col-span';
+  const prefix = 'row-span';
   SPAN[span] = `${prefix}-${span}`;
 
   breakpoints.forEach((breakpoint) => {
@@ -48,7 +48,7 @@ const STARTS: BreakpointClasses = {
 };
 
 starts.forEach((start) => {
-  const prefix = 'col-start';
+  const prefix = 'row-start';
   START[start] = `${prefix}-${start}`;
 
   breakpoints.forEach((breakpoint) => {
