@@ -2,7 +2,7 @@ import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
-const modes = ['absolute', 'relative', 'sticky'];
+const modes = ['absolute', 'relative', 'fixed', 'sticky'];
 
 const MODE: {
   [key: string]: string;
