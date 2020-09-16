@@ -551,19 +551,19 @@ interface Props {
 
 const Space: React.FC<Props> = ({
   padding,
+  paddingX,
+  paddingY,
   paddingLeft,
   paddingRight,
   paddingTop,
   paddingBottom,
-  paddingX,
-  paddingY,
   margin,
+  marginX,
+  marginY,
   marginLeft,
   marginRight,
   marginTop,
   marginBottom,
-  marginX,
-  marginY,
   className,
   style,
   children,
@@ -580,12 +580,22 @@ const Space: React.FC<Props> = ({
     }
   }
 
-  if (padding) {
-    if (typeof padding === 'string') {
-      computedClass += ` ${PADDING[padding]}`;
+  if (paddingX) {
+    if (typeof paddingX === 'string') {
+      computedClass += ` ${PADDING_X[paddingX]}`;
     } else {
-      Object.keys(padding).forEach((key) => {
-        computedClass += ` ${PADDINGS[key][padding[key]]}`;
+      Object.keys(paddingX).forEach((key) => {
+        computedClass += ` ${PADDINGS_X[key][paddingX[key]]}`;
+      });
+    }
+  }
+
+  if (paddingY) {
+    if (typeof paddingY === 'string') {
+      computedClass += ` ${PADDING_Y[paddingY]}`;
+    } else {
+      Object.keys(paddingY).forEach((key) => {
+        computedClass += ` ${PADDINGS_Y[key][paddingY[key]]}`;
       });
     }
   }
@@ -630,32 +640,32 @@ const Space: React.FC<Props> = ({
     }
   }
 
-  if (paddingX) {
-    if (typeof paddingX === 'string') {
-      computedClass += ` ${PADDING_X[paddingX]}`;
-    } else {
-      Object.keys(paddingX).forEach((key) => {
-        computedClass += ` ${PADDINGS_X[key][paddingX[key]]}`;
-      });
-    }
-  }
-
-  if (paddingY) {
-    if (typeof paddingY === 'string') {
-      computedClass += ` ${PADDING_Y[paddingY]}`;
-    } else {
-      Object.keys(paddingY).forEach((key) => {
-        computedClass += ` ${PADDINGS_Y[key][paddingY[key]]}`;
-      });
-    }
-  }
-
   if (margin) {
     if (typeof margin === 'string') {
       computedClass += ` ${MARGIN[margin]}`;
     } else {
       Object.keys(margin).forEach((key) => {
         computedClass += ` ${MARGINS[key][margin[key]]}`;
+      });
+    }
+  }
+
+  if (marginX) {
+    if (typeof marginX === 'string') {
+      computedClass += ` ${MARGIN_X[marginX]}`;
+    } else {
+      Object.keys(marginX).forEach((key) => {
+        computedClass += ` ${MARGINS_X[key][marginX[key]]}`;
+      });
+    }
+  }
+
+  if (marginY) {
+    if (typeof marginY === 'string') {
+      computedClass += ` ${MARGIN_Y[marginY]}`;
+    } else {
+      Object.keys(marginY).forEach((key) => {
+        computedClass += ` ${MARGINS_Y[key][marginY[key]]}`;
       });
     }
   }
@@ -696,26 +706,6 @@ const Space: React.FC<Props> = ({
     } else {
       Object.keys(marginBottom).forEach((key) => {
         computedClass += ` ${MARGINS_BOTTOM[key][marginBottom[key]]}`;
-      });
-    }
-  }
-
-  if (marginX) {
-    if (typeof marginX === 'string') {
-      computedClass += ` ${MARGIN_X[marginX]}`;
-    } else {
-      Object.keys(marginX).forEach((key) => {
-        computedClass += ` ${MARGINS_X[key][marginX[key]]}`;
-      });
-    }
-  }
-
-  if (marginY) {
-    if (typeof marginY === 'string') {
-      computedClass += ` ${MARGIN_Y[marginY]}`;
-    } else {
-      Object.keys(marginY).forEach((key) => {
-        computedClass += ` ${MARGINS_Y[key][marginY[key]]}`;
       });
     }
   }
