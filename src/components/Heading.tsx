@@ -82,7 +82,7 @@ const ALIGNS: BreakpointClasses = {
 };
 
 textAligns.forEach((align) => {
-  const prefix = 'font';
+  const prefix = 'text';
   ALIGN[align] = `${prefix}-${align}`;
 
   breakpoints.forEach((breakpoint) => {
@@ -107,7 +107,7 @@ const LEADINGS: BreakpointClasses = {
 };
 
 leadings.forEach((leading) => {
-  const prefix = 'font';
+  const prefix = 'leading';
   LEADING[leading] = `${prefix}-${leading}`;
 
   breakpoints.forEach((breakpoint) => {
@@ -132,7 +132,7 @@ const TRACKINGS: BreakpointClasses = {
 };
 
 trackings.forEach((tracking) => {
-  const prefix = 'font';
+  const prefix = 'tracking';
   TRACKING[tracking] = `${prefix}-${tracking}`;
 
   breakpoints.forEach((breakpoint) => {
