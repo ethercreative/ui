@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { animated, useSpring } from 'react-spring';
+import Head from 'next/head';
 
 interface Props {
   mode?: 'outer' | 'inner';
@@ -163,28 +163,45 @@ const Parallax: React.FC<Props> = ({
     });
   };
 
-  const props = useSpring({
-    opacity: 1,
-    translateY: 0,
-    from: {
-      opacity: aboveFold || inner ? 0 : 1,
-      translateY: aboveFold ? 100 : 0,
-    },
-  });
-
   return (
-    <animated.div
-      className={`w-full h-full ${inner ? 'overflow-hidden' : ''}`}
-      style={props}
-    >
+    <>
+      <Head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @keyframes animateIn {
+                0% {
+                  opacity: 0;
+                  transform: translate3d(0, 100px, 0);
+                }
+
+                100% {
+                  opacity: 1;
+                  transform: translate3d(0, 0, 0);
+                }
+              }
+            `,
+          }}
+        />
+      </Head>
+
       <div
-        className='w-full h-full'
-        style={{ opacity: aboveFold || inner ? 1 : 0 }}
-        ref={ref}
+        className={`w-full h-full ${inner ? 'overflow-hidden' : ''}`}
+        style={{
+          animation: aboveFold
+            ? 'animateIn 350ms cubic-bezier(0.61, 1, 0.88, 1) forwards'
+            : '',
+        }}
       >
-        {children}
+        <div
+          className='w-full h-full'
+          style={{ opacity: aboveFold || inner ? 1 : 0 }}
+          ref={ref}
+        >
+          {children}
+        </div>
       </div>
-    </animated.div>
+    </>
   );
 };
 
