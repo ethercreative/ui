@@ -32,7 +32,9 @@ const gaps = [
   '48',
   '56',
   '64',
-];
+] as const;
+
+type GAPS = keyof { [key in typeof gaps[number]]: string };
 
 const GAP: {
   [key: string]: string;
@@ -57,13 +59,13 @@ interface Props {
   order?: 'unordered' | 'ordered';
   mode?: keyof typeof MODE;
   gap?:
-    | keyof typeof GAP
+    | GAPS
     | {
-        default?: keyof typeof GAPS.default;
-        sm?: keyof typeof GAPS.sm;
-        md?: keyof typeof GAPS.md;
-        lg?: keyof typeof GAPS.lg;
-        xl?: keyof typeof GAPS.xl;
+        default?: GAPS;
+        sm?: GAPS;
+        md?: GAPS;
+        lg?: GAPS;
+        xl?: GAPS;
       };
   className?: React.HTMLAttributes<HTMLUListElement>['className'];
   style?: React.HTMLAttributes<HTMLUListElement>['style'];

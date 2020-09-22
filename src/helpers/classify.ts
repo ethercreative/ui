@@ -1,6 +1,6 @@
 export const classify = (strings: (string | undefined)[]): string =>
   strings
-    .filter((string) => string)
+    .filter((string) => Boolean(string))
     .join(' ')
     .replace(/  /g, ' ')
     .replace(/undefined/g, ' ')

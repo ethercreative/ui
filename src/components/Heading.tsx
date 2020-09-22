@@ -9,9 +9,14 @@ import {
 
 import {
   fontWeights,
+  FONT_WEIGHTS,
+  LEADINGS,
   leadings,
   textAligns,
   textSizes,
+  TEXT_ALIGNS,
+  TEXT_SIZES,
+  TRACKINGS,
   trackings,
 } from '../helpers/text';
 
@@ -122,49 +127,49 @@ trackings.forEach((tracking) => {
 interface Props {
   level?: keyof typeof LEVEL;
   size?:
-    | keyof typeof SIZE
+    | TEXT_SIZES
     | {
-        default?: keyof typeof SIZES.default;
-        sm?: keyof typeof SIZES.sm;
-        md?: keyof typeof SIZES.md;
-        lg?: keyof typeof SIZES.lg;
-        xl?: keyof typeof SIZES.xl;
+        default?: TEXT_SIZES;
+        sm?: TEXT_SIZES;
+        md?: TEXT_SIZES;
+        lg?: TEXT_SIZES;
+        xl?: TEXT_SIZES;
       };
   weight?:
-    | keyof typeof WEIGHT
+    | FONT_WEIGHTS
     | {
-        default?: keyof typeof WEIGHTS.default;
-        sm?: keyof typeof WEIGHTS.sm;
-        md?: keyof typeof WEIGHTS.md;
-        lg?: keyof typeof WEIGHTS.lg;
-        xl?: keyof typeof WEIGHTS.xl;
+        default?: FONT_WEIGHTS;
+        sm?: FONT_WEIGHTS;
+        md?: FONT_WEIGHTS;
+        lg?: FONT_WEIGHTS;
+        xl?: FONT_WEIGHTS;
       };
   align?:
-    | keyof typeof ALIGN
+    | TEXT_ALIGNS
     | {
-        default?: keyof typeof ALIGNS.default;
-        sm?: keyof typeof ALIGNS.sm;
-        md?: keyof typeof ALIGNS.md;
-        lg?: keyof typeof ALIGNS.lg;
-        xl?: keyof typeof ALIGNS.xl;
+        default?: TEXT_ALIGNS;
+        sm?: TEXT_ALIGNS;
+        md?: TEXT_ALIGNS;
+        lg?: TEXT_ALIGNS;
+        xl?: TEXT_ALIGNS;
       };
   leading?:
-    | keyof typeof LEADING
+    | LEADINGS
     | {
-        default?: keyof typeof LEADINGS.default;
-        sm?: keyof typeof LEADINGS.sm;
-        md?: keyof typeof LEADINGS.md;
-        lg?: keyof typeof LEADINGS.lg;
-        xl?: keyof typeof LEADINGS.xl;
+        default?: LEADINGS;
+        sm?: LEADINGS;
+        md?: LEADINGS;
+        lg?: LEADINGS;
+        xl?: LEADINGS;
       };
   tracking?:
-    | keyof typeof TRACKING
+    | TRACKINGS
     | {
-        default?: keyof typeof TRACKINGS.default;
-        sm?: keyof typeof TRACKINGS.sm;
-        md?: keyof typeof TRACKINGS.md;
-        lg?: keyof typeof TRACKINGS.lg;
-        xl?: keyof typeof TRACKINGS.xl;
+        default?: TRACKINGS;
+        sm?: TRACKINGS;
+        md?: TRACKINGS;
+        lg?: TRACKINGS;
+        xl?: TRACKINGS;
       };
   className?: React.HTMLAttributes<HTMLHeadingElement>['className'];
   style?: React.HTMLAttributes<HTMLHeadingElement>['style'];

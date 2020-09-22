@@ -50,7 +50,9 @@ const gaps = [
   '48',
   '56',
   '64',
-];
+] as const;
+
+type GAPS = keyof { [key in typeof gaps[number]]: string };
 
 const GAP: {
   [key: string]: string;
@@ -113,31 +115,31 @@ interface Props {
   columns?: keyof typeof COLUMN;
   rows?: keyof typeof ROW;
   gap?:
-    | keyof typeof GAP
+    | GAPS
     | {
-        default?: keyof typeof GAPS.default;
-        sm?: keyof typeof GAPS.sm;
-        md?: keyof typeof GAPS.md;
-        lg?: keyof typeof GAPS.lg;
-        xl?: keyof typeof GAPS.xl;
+        default?: GAPS;
+        sm?: GAPS;
+        md?: GAPS;
+        lg?: GAPS;
+        xl?: GAPS;
       };
   gapX?:
-    | keyof typeof GAP_X
+    | GAPS
     | {
-        default?: keyof typeof GAPS_X.default;
-        sm?: keyof typeof GAPS_X.sm;
-        md?: keyof typeof GAPS_X.md;
-        lg?: keyof typeof GAPS_X.lg;
-        xl?: keyof typeof GAPS_X.xl;
+        default?: GAPS;
+        sm?: GAPS;
+        md?: GAPS;
+        lg?: GAPS;
+        xl?: GAPS;
       };
   gapY?:
-    | keyof typeof GAP_Y
+    | GAPS
     | {
-        default?: keyof typeof GAPS_Y.default;
-        sm?: keyof typeof GAPS_Y.sm;
-        md?: keyof typeof GAPS_Y.md;
-        lg?: keyof typeof GAPS_Y.lg;
-        xl?: keyof typeof GAPS_Y.xl;
+        default?: GAPS;
+        sm?: GAPS;
+        md?: GAPS;
+        lg?: GAPS;
+        xl?: GAPS;
       };
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];

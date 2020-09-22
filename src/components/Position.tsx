@@ -7,7 +7,8 @@ import {
   defaultBreakpoints,
 } from '../helpers/breakpoints';
 
-const modes = ['absolute', 'relative', 'fixed', 'sticky'];
+const modes = ['absolute', 'relative', 'fixed', 'sticky'] as const;
+type MODES = keyof { [key in typeof modes[number]]: string };
 
 const MODE: {
   [key: string]: string;
@@ -27,7 +28,8 @@ modes.forEach((mode) => {
   });
 });
 
-const insets = ['auto', '0'];
+const insets = ['auto', '0'] as const;
+type INSETS = keyof { [key in typeof insets[number]]: string };
 
 const INSET: {
   [key: string]: string;
@@ -164,76 +166,76 @@ insets.forEach((inset) => {
 
 interface Props {
   mode:
-    | keyof typeof MODE
+    | MODES
     | {
-        default?: keyof typeof MODES.default;
-        sm?: keyof typeof MODES.sm;
-        md?: keyof typeof MODES.md;
-        lg?: keyof typeof MODES.lg;
-        xl?: keyof typeof MODES.xl;
+        default?: MODES;
+        sm?: MODES;
+        md?: MODES;
+        lg?: MODES;
+        xl?: MODES;
       };
   inset?:
-    | keyof typeof INSET
+    | INSETS
     | {
-        default?: keyof typeof INSETS.default;
-        sm?: keyof typeof INSETS.sm;
-        md?: keyof typeof INSETS.md;
-        lg?: keyof typeof INSETS.lg;
-        xl?: keyof typeof INSETS.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   insetX?:
-    | keyof typeof INSET_X
+    | INSETS
     | {
-        default?: keyof typeof INSETS_X.default;
-        sm?: keyof typeof INSETS_X.sm;
-        md?: keyof typeof INSETS_X.md;
-        lg?: keyof typeof INSETS_X.lg;
-        xl?: keyof typeof INSETS_X.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   insetY?:
-    | keyof typeof INSET_Y
+    | INSETS
     | {
-        default?: keyof typeof INSETS_Y.default;
-        sm?: keyof typeof INSETS_Y.sm;
-        md?: keyof typeof INSETS_Y.md;
-        lg?: keyof typeof INSETS_Y.lg;
-        xl?: keyof typeof INSETS_Y.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   left?:
-    | keyof typeof LEFT
+    | INSETS
     | {
-        default?: keyof typeof LEFTS.default;
-        sm?: keyof typeof LEFTS.sm;
-        md?: keyof typeof LEFTS.md;
-        lg?: keyof typeof LEFTS.lg;
-        xl?: keyof typeof LEFTS.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   right?:
-    | keyof typeof RIGHT
+    | INSETS
     | {
-        default?: keyof typeof RIGHTS.default;
-        sm?: keyof typeof RIGHTS.sm;
-        md?: keyof typeof RIGHTS.md;
-        lg?: keyof typeof RIGHTS.lg;
-        xl?: keyof typeof RIGHTS.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   top?:
-    | keyof typeof TOP
+    | INSETS
     | {
-        default?: keyof typeof TOPS.default;
-        sm?: keyof typeof TOPS.sm;
-        md?: keyof typeof TOPS.md;
-        lg?: keyof typeof TOPS.lg;
-        xl?: keyof typeof TOPS.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   bottom?:
-    | keyof typeof BOTTOM
+    | INSETS
     | {
-        default?: keyof typeof BOTTOMS.default;
-        sm?: keyof typeof BOTTOMS.sm;
-        md?: keyof typeof BOTTOMS.md;
-        lg?: keyof typeof BOTTOMS.lg;
-        xl?: keyof typeof BOTTOMS.xl;
+        default?: INSETS;
+        sm?: INSETS;
+        md?: INSETS;
+        lg?: INSETS;
+        xl?: INSETS;
       };
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];

@@ -26,7 +26,9 @@ const paddings = [
   '48',
   '56',
   '64',
-];
+] as const;
+
+type PADDINGS = keyof { [key in typeof paddings[number]]: string };
 
 const PADDING: {
   [key: string]: string;
@@ -180,7 +182,27 @@ const margins = [
   '48',
   '56',
   '64',
-];
+  '-0',
+  '-1',
+  '-2',
+  '-3',
+  '-4',
+  '-5',
+  '-6',
+  '-8',
+  '-10',
+  '-12',
+  '-16',
+  '-20',
+  '-24',
+  '-32',
+  '-40',
+  '-48',
+  '-56',
+  '-64',
+] as const;
+
+type MARGINS = keyof { [key in typeof margins[number]]: string };
 
 const MARGIN: {
   [key: string]: string;
@@ -190,16 +212,23 @@ const MARGINS: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'm';
-  MARGIN[margin] = `${prefix}-${margin}`;
-  MARGIN[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS[breakpoint]) {
       MARGINS[breakpoint] = {};
     }
 
-    MARGINS[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-    MARGINS[breakpoint][`-${margin}`] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
@@ -211,16 +240,23 @@ const MARGINS_X: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mx';
-  MARGIN_X[margin] = `${prefix}-${margin}`;
-  MARGIN_X[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN_X[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN_X[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_X[breakpoint]) {
       MARGINS_X[breakpoint] = {};
     }
 
-    MARGINS_X[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-    MARGINS_X[breakpoint][`-${margin}`] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS_X[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS_X[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
@@ -232,16 +268,23 @@ const MARGINS_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'my';
-  MARGIN_Y[margin] = `${prefix}-${margin}`;
-  MARGIN_Y[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN_Y[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN_Y[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_Y[breakpoint]) {
       MARGINS_Y[breakpoint] = {};
     }
 
-    MARGINS_Y[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-    MARGINS_Y[breakpoint][`-${margin}`] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS_Y[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS_Y[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
@@ -253,19 +296,23 @@ const MARGINS_LEFT: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'ml';
-  MARGIN_LEFT[margin] = `${prefix}-${margin}`;
-  MARGIN_LEFT[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN_LEFT[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN_LEFT[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_LEFT[breakpoint]) {
       MARGINS_LEFT[breakpoint] = {};
     }
 
-    MARGINS_LEFT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-
-    MARGINS_LEFT[breakpoint][
-      `-${margin}`
-    ] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS_LEFT[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS_LEFT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
@@ -277,19 +324,23 @@ const MARGINS_RIGHT: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mr';
-  MARGIN_RIGHT[margin] = `${prefix}-${margin}`;
-  MARGIN_RIGHT[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN_RIGHT[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN_RIGHT[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_RIGHT[breakpoint]) {
       MARGINS_RIGHT[breakpoint] = {};
     }
 
-    MARGINS_RIGHT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-
-    MARGINS_RIGHT[breakpoint][
-      `-${margin}`
-    ] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS_RIGHT[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS_RIGHT[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
@@ -301,19 +352,23 @@ const MARGINS_TOP: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mt';
-  MARGIN_TOP[margin] = `${prefix}-${margin}`;
-  MARGIN_TOP[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN_TOP[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN_TOP[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_TOP[breakpoint]) {
       MARGINS_TOP[breakpoint] = {};
     }
 
-    MARGINS_TOP[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-
-    MARGINS_TOP[breakpoint][
-      `-${margin}`
-    ] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS_TOP[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS_TOP[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
@@ -325,148 +380,152 @@ const MARGINS_BOTTOM: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mb';
-  MARGIN_BOTTOM[margin] = `${prefix}-${margin}`;
-  MARGIN_BOTTOM[`-${margin}`] = `-${prefix}-${margin}`;
+
+  if (margin.includes('-')) {
+    MARGIN_BOTTOM[margin] = `-${prefix}-${margin.replace('-', '')}`;
+  } else {
+    MARGIN_BOTTOM[margin] = `${prefix}-${margin}`;
+  }
 
   breakpoints.forEach((breakpoint) => {
     if (!MARGINS_BOTTOM[breakpoint]) {
       MARGINS_BOTTOM[breakpoint] = {};
     }
 
-    MARGINS_BOTTOM[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
-
-    MARGINS_BOTTOM[breakpoint][
-      `-${margin}`
-    ] = `${breakpoint}:-${prefix}-${margin}`;
+    if (margin.includes('-')) {
+      MARGINS_BOTTOM[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
+    } else {
+      MARGINS_BOTTOM[breakpoint][margin] = `${breakpoint}:${prefix}-${margin}`;
+    }
   });
 });
 
 interface Props {
   padding?:
-    | keyof typeof PADDING
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS.default;
-        sm?: keyof typeof PADDINGS.sm;
-        md?: keyof typeof PADDINGS.md;
-        lg?: keyof typeof PADDINGS.lg;
-        xl?: keyof typeof PADDINGS.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   paddingLeft?:
-    | keyof typeof PADDING_LEFT
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS_LEFT.default;
-        sm?: keyof typeof PADDINGS_LEFT.sm;
-        md?: keyof typeof PADDINGS_LEFT.md;
-        lg?: keyof typeof PADDINGS_LEFT.lg;
-        xl?: keyof typeof PADDINGS_LEFT.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   paddingRight?:
-    | keyof typeof PADDING_RIGHT
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS_RIGHT.default;
-        sm?: keyof typeof PADDINGS_RIGHT.sm;
-        md?: keyof typeof PADDINGS_RIGHT.md;
-        lg?: keyof typeof PADDINGS_RIGHT.lg;
-        xl?: keyof typeof PADDINGS_RIGHT.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   paddingTop?:
-    | keyof typeof PADDING_TOP
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS_TOP.default;
-        sm?: keyof typeof PADDINGS_TOP.sm;
-        md?: keyof typeof PADDINGS_TOP.md;
-        lg?: keyof typeof PADDINGS_TOP.lg;
-        xl?: keyof typeof PADDINGS_TOP.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   paddingBottom?:
-    | keyof typeof PADDING_BOTTOM
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS_BOTTOM.default;
-        sm?: keyof typeof PADDINGS_BOTTOM.sm;
-        md?: keyof typeof PADDINGS_BOTTOM.md;
-        lg?: keyof typeof PADDINGS_BOTTOM.lg;
-        xl?: keyof typeof PADDINGS_BOTTOM.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   paddingX?:
-    | keyof typeof PADDING_X
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS_X.default;
-        sm?: keyof typeof PADDINGS_X.sm;
-        md?: keyof typeof PADDINGS_X.md;
-        lg?: keyof typeof PADDINGS_X.lg;
-        xl?: keyof typeof PADDINGS_X.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   paddingY?:
-    | keyof typeof PADDING_Y
+    | PADDINGS
     | {
-        default?: keyof typeof PADDINGS_Y.default;
-        sm?: keyof typeof PADDINGS_Y.sm;
-        md?: keyof typeof PADDINGS_Y.md;
-        lg?: keyof typeof PADDINGS_Y.lg;
-        xl?: keyof typeof PADDINGS_Y.xl;
+        default?: PADDINGS;
+        sm?: PADDINGS;
+        md?: PADDINGS;
+        lg?: PADDINGS;
+        xl?: PADDINGS;
       };
   margin?:
-    | keyof typeof MARGIN
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS.default;
-        sm?: keyof typeof MARGINS.sm;
-        md?: keyof typeof MARGINS.md;
-        lg?: keyof typeof MARGINS.lg;
-        xl?: keyof typeof MARGINS.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   marginLeft?:
-    | keyof typeof MARGIN_LEFT
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS_LEFT.default;
-        sm?: keyof typeof MARGINS_LEFT.sm;
-        md?: keyof typeof MARGINS_LEFT.md;
-        lg?: keyof typeof MARGINS_LEFT.lg;
-        xl?: keyof typeof MARGINS_LEFT.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   marginRight?:
-    | keyof typeof MARGIN_RIGHT
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS_RIGHT.default;
-        sm?: keyof typeof MARGINS_RIGHT.sm;
-        md?: keyof typeof MARGINS_RIGHT.md;
-        lg?: keyof typeof MARGINS_RIGHT.lg;
-        xl?: keyof typeof MARGINS_RIGHT.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   marginTop?:
-    | keyof typeof MARGIN_TOP
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS_TOP.default;
-        sm?: keyof typeof MARGINS_TOP.sm;
-        md?: keyof typeof MARGINS_TOP.md;
-        lg?: keyof typeof MARGINS_TOP.lg;
-        xl?: keyof typeof MARGINS_TOP.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   marginBottom?:
-    | keyof typeof MARGIN_BOTTOM
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS_BOTTOM.default;
-        sm?: keyof typeof MARGINS_BOTTOM.sm;
-        md?: keyof typeof MARGINS_BOTTOM.md;
-        lg?: keyof typeof MARGINS_BOTTOM.lg;
-        xl?: keyof typeof MARGINS_BOTTOM.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   marginX?:
-    | keyof typeof MARGIN_X
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS_X.default;
-        sm?: keyof typeof MARGINS_X.sm;
-        md?: keyof typeof MARGINS_X.md;
-        lg?: keyof typeof MARGINS_X.lg;
-        xl?: keyof typeof MARGINS_X.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   marginY?:
-    | keyof typeof MARGIN_Y
+    | MARGINS
     | {
-        default?: keyof typeof MARGINS_Y.default;
-        sm?: keyof typeof MARGINS_Y.sm;
-        md?: keyof typeof MARGINS_Y.md;
-        lg?: keyof typeof MARGINS_Y.lg;
-        xl?: keyof typeof MARGINS_Y.xl;
+        default?: MARGINS;
+        sm?: MARGINS;
+        md?: MARGINS;
+        lg?: MARGINS;
+        xl?: MARGINS;
       };
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];

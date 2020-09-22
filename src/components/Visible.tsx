@@ -7,7 +7,8 @@ import {
   defaultBreakpoints,
 } from '../helpers/breakpoints';
 
-const modes = ['hidden', 'block', 'flex'];
+const modes = ['hidden', 'block', 'flex'] as const;
+type MODES = keyof { [key in typeof modes[number]]: string };
 
 const MODE: {
   [key: string]: string;
@@ -29,13 +30,13 @@ modes.forEach((mode) => {
 
 interface Props {
   mode?:
-    | keyof typeof MODE
+    | MODES
     | {
-        default?: keyof typeof MODES.default;
-        sm?: keyof typeof MODES.sm;
-        md?: keyof typeof MODES.md;
-        lg?: keyof typeof MODES.lg;
-        xl?: keyof typeof MODES.xl;
+        default?: MODES;
+        sm?: MODES;
+        md?: MODES;
+        lg?: MODES;
+        xl?: MODES;
       };
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];

@@ -9,7 +9,9 @@ export const textSizes = [
   '4xl',
   '5xl',
   '6xl',
-];
+] as const;
+
+export type TEXT_SIZES = keyof { [key in typeof textSizes[number]]: string };
 
 export const fontWeights = [
   'hairline',
@@ -21,11 +23,26 @@ export const fontWeights = [
   'bold',
   'extrabold',
   'black',
-];
+] as const;
 
-export const textAligns = ['left', 'right', 'center'];
+export type FONT_WEIGHTS = keyof {
+  [key in typeof fontWeights[number]]: string;
+};
 
-export const leadings = ['none', 'tight', 'snug', 'normal', 'relaxed', 'loose'];
+export const textAligns = ['left', 'right', 'center'] as const;
+
+export type TEXT_ALIGNS = keyof { [key in typeof textAligns[number]]: string };
+
+export const leadings = [
+  'none',
+  'tight',
+  'snug',
+  'normal',
+  'relaxed',
+  'loose',
+] as const;
+
+export type LEADINGS = keyof { [key in typeof leadings[number]]: string };
 
 export const trackings = [
   'tighter',
@@ -34,4 +51,6 @@ export const trackings = [
   'normal',
   'wider',
   'widest',
-];
+] as const;
+
+export type TRACKINGS = keyof { [key in typeof trackings[number]]: string };

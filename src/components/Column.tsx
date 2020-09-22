@@ -7,9 +7,22 @@ import {
   defaultBreakpoints,
 } from '../helpers/breakpoints';
 
-const spans = Array(12)
-  .fill(0)
-  .map((_, i) => String(i + 1));
+const spans = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+] as const;
+
+type SPANS = keyof { [key in typeof spans[number]]: string };
 
 const SPAN: {
   [key: string]: string;
@@ -30,9 +43,23 @@ spans.forEach((span) => {
   });
 });
 
-const starts = Array(13)
-  .fill(0)
-  .map((_, i) => String(i + 1));
+const starts = [
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  '11',
+  '12',
+  '13',
+] as const;
+
+type STARTS = keyof { [key in typeof starts[number]]: string };
 
 const START: {
   [key: string]: string;
@@ -54,23 +81,23 @@ starts.forEach((start) => {
 });
 
 interface Props {
-  span:
-    | keyof typeof SPAN
+  span?:
+    | SPANS
     | {
-        default?: keyof typeof SPANS.default;
-        sm?: keyof typeof SPANS.sm;
-        md?: keyof typeof SPANS.md;
-        lg?: keyof typeof SPANS.lg;
-        xl?: keyof typeof SPANS.xl;
+        default?: SPANS;
+        sm?: SPANS;
+        md?: SPANS;
+        lg?: SPANS;
+        xl?: SPANS;
       };
   start?:
-    | keyof typeof START
+    | STARTS
     | {
-        default?: keyof typeof STARTS.default;
-        sm?: keyof typeof STARTS.sm;
-        md?: keyof typeof STARTS.md;
-        lg?: keyof typeof STARTS.lg;
-        xl?: keyof typeof STARTS.xl;
+        default?: STARTS;
+        sm?: STARTS;
+        md?: STARTS;
+        lg?: STARTS;
+        xl?: STARTS;
       };
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
   style?: React.HTMLAttributes<HTMLDivElement>['style'];

@@ -7,7 +7,8 @@ import {
   defaultBreakpoints,
 } from '../helpers/breakpoints';
 
-const directions = ['row', 'row-reverse', 'col', 'col-reverse'];
+const directions = ['row', 'row-reverse', 'col', 'col-reverse'] as const;
+type DIRECTIONS = keyof { [key in typeof directions[number]]: string };
 
 const DIRECTION: {
   [key: string]: string;
@@ -28,7 +29,8 @@ directions.forEach((direction) => {
   });
 });
 
-const wraps = ['wrap', 'wrap-reverse', 'no-wrap'];
+const wraps = ['wrap', 'wrap-reverse', 'no-wrap'] as const;
+type WRAPS = keyof { [key in typeof wraps[number]]: string };
 
 const WRAP: {
   [key: string]: string;
@@ -49,7 +51,16 @@ wraps.forEach((wrap) => {
   });
 });
 
-const xAligns = ['start', 'end', 'center', 'between', 'around', 'evenly'];
+const xAligns = [
+  'start',
+  'end',
+  'center',
+  'between',
+  'around',
+  'evenly',
+] as const;
+
+type X_ALIGNS = keyof { [key in typeof xAligns[number]]: string };
 
 const ALIGN_X: {
   [key: string]: string;
@@ -70,7 +81,8 @@ xAligns.forEach((align) => {
   });
 });
 
-const yAligns = ['start', 'end', 'center', 'between', 'stretch'];
+const yAligns = ['start', 'end', 'center', 'between', 'stretch'] as const;
+type Y_ALIGNS = keyof { [key in typeof yAligns[number]]: string };
 
 const ALIGN_Y: {
   [key: string]: string;
@@ -109,7 +121,9 @@ const spaces = [
   '48',
   '56',
   '64',
-];
+] as const;
+
+type SPACES = keyof { [key in typeof spaces[number]]: string };
 
 const SPACE_X: {
   [key: string]: string;
@@ -151,58 +165,58 @@ spaces.forEach((space) => {
 
 interface Props {
   direction?:
-    | keyof typeof DIRECTION
+    | DIRECTIONS
     | {
-        default?: keyof typeof DIRECTIONS.default;
-        sm?: keyof typeof DIRECTIONS.sm;
-        md?: keyof typeof DIRECTIONS.md;
-        lg?: keyof typeof DIRECTIONS.lg;
-        xl?: keyof typeof DIRECTIONS.xl;
+        default?: DIRECTIONS;
+        sm?: DIRECTIONS;
+        md?: DIRECTIONS;
+        lg?: DIRECTIONS;
+        xl?: DIRECTIONS;
       };
   wrap?:
-    | keyof typeof WRAP
+    | WRAPS
     | {
-        default?: keyof typeof WRAPS.default;
-        sm?: keyof typeof WRAPS.sm;
-        md?: keyof typeof WRAPS.md;
-        lg?: keyof typeof WRAPS.lg;
-        xl?: keyof typeof WRAPS.xl;
+        default?: WRAPS;
+        sm?: WRAPS;
+        md?: WRAPS;
+        lg?: WRAPS;
+        xl?: WRAPS;
       };
   alignX?:
-    | keyof typeof ALIGN_X
+    | X_ALIGNS
     | {
-        default?: keyof typeof ALIGNS_X.default;
-        sm?: keyof typeof ALIGNS_X.sm;
-        md?: keyof typeof ALIGNS_X.md;
-        lg?: keyof typeof ALIGNS_X.lg;
-        xl?: keyof typeof ALIGNS_X.xl;
+        default?: X_ALIGNS;
+        sm?: X_ALIGNS;
+        md?: X_ALIGNS;
+        lg?: X_ALIGNS;
+        xl?: X_ALIGNS;
       };
   alignY?:
-    | keyof typeof ALIGN_Y
+    | Y_ALIGNS
     | {
-        default?: keyof typeof ALIGNS_Y.default;
-        sm?: keyof typeof ALIGNS_Y.sm;
-        md?: keyof typeof ALIGNS_Y.md;
-        lg?: keyof typeof ALIGNS_Y.lg;
-        xl?: keyof typeof ALIGNS_Y.xl;
+        default?: Y_ALIGNS;
+        sm?: Y_ALIGNS;
+        md?: Y_ALIGNS;
+        lg?: Y_ALIGNS;
+        xl?: Y_ALIGNS;
       };
   spaceX?:
-    | keyof typeof SPACE_X
+    | SPACES
     | {
-        default?: keyof typeof SPACES_X.default;
-        sm?: keyof typeof SPACES_X.sm;
-        md?: keyof typeof SPACES_X.md;
-        lg?: keyof typeof SPACES_X.lg;
-        xl?: keyof typeof SPACES_X.xl;
+        default?: SPACES;
+        sm?: SPACES;
+        md?: SPACES;
+        lg?: SPACES;
+        xl?: SPACES;
       };
   spaceY?:
-    | keyof typeof SPACE_Y
+    | SPACES
     | {
-        default?: keyof typeof SPACES_Y.default;
-        sm?: keyof typeof SPACES_Y.sm;
-        md?: keyof typeof SPACES_Y.md;
-        lg?: keyof typeof SPACES_Y.lg;
-        xl?: keyof typeof SPACES_Y.xl;
+        default?: SPACES;
+        sm?: SPACES;
+        md?: SPACES;
+        lg?: SPACES;
+        xl?: SPACES;
       };
   className?: React.HTMLAttributes<HTMLUListElement>['className'];
   style?: React.HTMLAttributes<HTMLUListElement>['style'];
