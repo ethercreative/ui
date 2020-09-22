@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+
+import {
+  BreakpointClasses,
+  breakpoints,
+  defaultBreakpoints,
+} from '../helpers/breakpoints';
 
 const paddings = [
   '0',
@@ -27,13 +32,7 @@ const PADDING: {
   [key: string]: string;
 } = {};
 
-const PADDINGS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'p';
@@ -52,13 +51,7 @@ const PADDING_X: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_X: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS_X: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'px';
@@ -77,13 +70,7 @@ const PADDING_Y: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_Y: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'py';
@@ -102,13 +89,7 @@ const PADDING_LEFT: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_LEFT: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS_LEFT: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'pl';
@@ -127,13 +108,7 @@ const PADDING_RIGHT: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_RIGHT: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS_RIGHT: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'pr';
@@ -152,13 +127,7 @@ const PADDING_TOP: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_TOP: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS_TOP: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'pt';
@@ -177,13 +146,7 @@ const PADDING_BOTTOM: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_BOTTOM: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const PADDINGS_BOTTOM: BreakpointClasses = { ...defaultBreakpoints };
 
 paddings.forEach((padding) => {
   const prefix = 'pb';
@@ -223,13 +186,7 @@ const MARGIN: {
   [key: string]: string;
 } = {};
 
-const MARGINS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'm';
@@ -250,13 +207,7 @@ const MARGIN_X: {
   [key: string]: string;
 } = {};
 
-const MARGINS_X: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS_X: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mx';
@@ -277,13 +228,7 @@ const MARGIN_Y: {
   [key: string]: string;
 } = {};
 
-const MARGINS_Y: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'my';
@@ -304,13 +249,7 @@ const MARGIN_LEFT: {
   [key: string]: string;
 } = {};
 
-const MARGINS_LEFT: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS_LEFT: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'ml';
@@ -334,13 +273,7 @@ const MARGIN_RIGHT: {
   [key: string]: string;
 } = {};
 
-const MARGINS_RIGHT: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS_RIGHT: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mr';
@@ -364,13 +297,7 @@ const MARGIN_TOP: {
   [key: string]: string;
 } = {};
 
-const MARGINS_TOP: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS_TOP: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mt';
@@ -394,13 +321,7 @@ const MARGIN_BOTTOM: {
   [key: string]: string;
 } = {};
 
-const MARGINS_BOTTOM: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MARGINS_BOTTOM: BreakpointClasses = { ...defaultBreakpoints };
 
 margins.forEach((margin) => {
   const prefix = 'mb';

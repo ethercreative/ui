@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+
+import {
+  BreakpointClasses,
+  breakpoints,
+  defaultBreakpoints,
+} from '../helpers/breakpoints';
 
 import {
   fontWeights,
@@ -23,13 +28,7 @@ const SIZE: {
   [key: string]: string;
 } = {};
 
-const SIZES: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const SIZES: BreakpointClasses = { ...defaultBreakpoints };
 
 textSizes.forEach((size) => {
   const prefix = 'text';
@@ -48,13 +47,7 @@ const WEIGHT: {
   [key: string]: string;
 } = {};
 
-const WEIGHTS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const WEIGHTS: BreakpointClasses = { ...defaultBreakpoints };
 
 fontWeights.forEach((weight) => {
   const prefix = 'font';
@@ -73,13 +66,7 @@ const ALIGN: {
   [key: string]: string;
 } = {};
 
-const ALIGNS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const ALIGNS: BreakpointClasses = { ...defaultBreakpoints };
 
 textAligns.forEach((align) => {
   const prefix = 'text';
@@ -98,13 +85,7 @@ const LEADING: {
   [key: string]: string;
 } = {};
 
-const LEADINGS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const LEADINGS: BreakpointClasses = { ...defaultBreakpoints };
 
 leadings.forEach((leading) => {
   const prefix = 'leading';
@@ -123,13 +104,7 @@ const TRACKING: {
   [key: string]: string;
 } = {};
 
-const TRACKINGS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const TRACKINGS: BreakpointClasses = { ...defaultBreakpoints };
 
 trackings.forEach((tracking) => {
   const prefix = 'tracking';

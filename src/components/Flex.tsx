@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+
+import {
+  BreakpointClasses,
+  breakpoints,
+  defaultBreakpoints,
+} from '../helpers/breakpoints';
 
 const directions = ['row', 'row-reverse', 'col', 'col-reverse'];
 
@@ -8,13 +13,7 @@ const DIRECTION: {
   [key: string]: string;
 } = {};
 
-const DIRECTIONS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const DIRECTIONS: BreakpointClasses = { ...defaultBreakpoints };
 
 directions.forEach((direction) => {
   const prefix = 'flex';
@@ -35,13 +34,7 @@ const WRAP: {
   [key: string]: string;
 } = {};
 
-const WRAPS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const WRAPS: BreakpointClasses = { ...defaultBreakpoints };
 
 wraps.forEach((wrap) => {
   const prefix = 'flex';
@@ -62,13 +55,7 @@ const ALIGN_X: {
   [key: string]: string;
 } = {};
 
-const ALIGNS_X: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const ALIGNS_X: BreakpointClasses = { ...defaultBreakpoints };
 
 xAligns.forEach((align) => {
   const prefix = 'justify';
@@ -89,13 +76,7 @@ const ALIGN_Y: {
   [key: string]: string;
 } = {};
 
-const ALIGNS_Y: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const ALIGNS_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 yAligns.forEach((align) => {
   const prefix = 'items';
@@ -134,13 +115,7 @@ const SPACE_X: {
   [key: string]: string;
 } = {};
 
-const SPACES_X: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const SPACES_X: BreakpointClasses = { ...defaultBreakpoints };
 
 spaces.forEach((space) => {
   const prefix = 'space-x';
@@ -159,13 +134,7 @@ const SPACE_Y: {
   [key: string]: string;
 } = {};
 
-const SPACES_Y: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const SPACES_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 spaces.forEach((space) => {
   const prefix = 'space-y';

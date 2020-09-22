@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+
+import {
+  BreakpointClasses,
+  breakpoints,
+  defaultBreakpoints,
+} from '../helpers/breakpoints';
 
 const modes = ['absolute', 'relative', 'fixed', 'sticky'];
 
@@ -8,13 +13,7 @@ const MODE: {
   [key: string]: string;
 } = {};
 
-const MODES: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const MODES: BreakpointClasses = { ...defaultBreakpoints };
 
 modes.forEach((mode) => {
   MODE[mode] = mode;
@@ -34,13 +33,7 @@ const INSET: {
   [key: string]: string;
 } = {};
 
-const INSETS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const INSETS: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'inset';
@@ -59,13 +52,7 @@ const INSET_X: {
   [key: string]: string;
 } = {};
 
-const INSETS_X: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const INSETS_X: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'inset-x';
@@ -84,13 +71,7 @@ const INSET_Y: {
   [key: string]: string;
 } = {};
 
-const INSETS_Y: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const INSETS_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'inset-y';
@@ -109,13 +90,7 @@ const LEFT: {
   [key: string]: string;
 } = {};
 
-const LEFTS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const LEFTS: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'left';
@@ -134,13 +109,7 @@ const RIGHT: {
   [key: string]: string;
 } = {};
 
-const RIGHTS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const RIGHTS: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'right';
@@ -159,13 +128,7 @@ const TOP: {
   [key: string]: string;
 } = {};
 
-const TOPS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const TOPS: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'top';
@@ -184,13 +147,7 @@ const BOTTOM: {
   [key: string]: string;
 } = {};
 
-const BOTTOMS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const BOTTOMS: BreakpointClasses = { ...defaultBreakpoints };
 
 insets.forEach((inset) => {
   const prefix = 'bottom';

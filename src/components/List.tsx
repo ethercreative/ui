@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+
+import {
+  BreakpointClasses,
+  breakpoints,
+  defaultBreakpoints,
+} from '../helpers/breakpoints';
 
 const MODE = {
   disc: 'list-disc',
@@ -33,13 +38,7 @@ const GAP: {
   [key: string]: string;
 } = {};
 
-const GAPS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const GAPS: BreakpointClasses = { ...defaultBreakpoints };
 
 gaps.forEach((gap) => {
   const prefix = 'gap-y';

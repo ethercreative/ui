@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+
+import {
+  BreakpointClasses,
+  breakpoints,
+  defaultBreakpoints,
+} from '../helpers/breakpoints';
 
 const COLUMN = {
   '1': 'grid-cols-1',
@@ -51,13 +56,7 @@ const GAP: {
   [key: string]: string;
 } = {};
 
-const GAPS: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const GAPS: BreakpointClasses = { ...defaultBreakpoints };
 
 gaps.forEach((gap) => {
   const prefix = 'gap';
@@ -76,13 +75,7 @@ const GAP_X: {
   [key: string]: string;
 } = {};
 
-const GAPS_X: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const GAPS_X: BreakpointClasses = { ...defaultBreakpoints };
 
 gaps.forEach((gap) => {
   const prefix = 'gap-x';
@@ -101,13 +94,7 @@ const GAP_Y: {
   [key: string]: string;
 } = {};
 
-const GAPS_Y: BreakpointClasses = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
+const GAPS_Y: BreakpointClasses = { ...defaultBreakpoints };
 
 gaps.forEach((gap) => {
   const prefix = 'gap-y';
