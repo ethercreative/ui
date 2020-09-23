@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const COLUMN = {
   '1': 'grid-cols-1',
@@ -156,48 +157,23 @@ const Grid: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = 'grid';
+  const computedClasses: (string | undefined)[] = [
+    'grid',
+    computeClass(gap, GAP, GAPS),
+    computeClass(gapX, GAP_X, GAPS_X),
+    computeClass(gapY, GAP, GAPS_Y),
+  ];
 
   if (columns) {
-    computedClass += ` ${COLUMN[columns]}`;
+    computedClasses.push(COLUMN[columns]);
   }
 
   if (rows) {
-    computedClass += ` ${ROW[rows]}`;
-  }
-
-  if (gap) {
-    if (typeof gap === 'string') {
-      computedClass += ` ${GAP[gap]}`;
-    } else {
-      Object.keys(gap).forEach((key) => {
-        computedClass += ` ${GAPS[key][gap[key]]}`;
-      });
-    }
-  }
-
-  if (gapX) {
-    if (typeof gapX === 'string') {
-      computedClass += ` ${GAP_X[gapX]}`;
-    } else {
-      Object.keys(gapX).forEach((key) => {
-        computedClass += ` ${GAPS_X[key][gapX[key]]}`;
-      });
-    }
-  }
-
-  if (gapY) {
-    if (typeof gapY === 'string') {
-      computedClass += ` ${GAP_Y[gapY]}`;
-    } else {
-      Object.keys(gapY).forEach((key) => {
-        computedClass += ` ${GAPS_Y[key][gapY[key]]}`;
-      });
-    }
+    computedClasses.push(ROW[rows]);
   }
 
   return (
-    <div className={classify([computedClass, className])} style={style}>
+    <div className={classify([...computedClasses, className])} style={style}>
       {children}
     </div>
   );

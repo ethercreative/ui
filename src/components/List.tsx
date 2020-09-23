@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const MODE = {
   disc: 'list-disc',
@@ -76,23 +77,15 @@ const List: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = '';
+  const computedClasses: (string | undefined)[] = [
+    computeClass(gap, GAP, GAPS),
+  ];
 
   if (mode) {
-    computedClass += ` ${MODE[mode]}`;
+    computedClasses.push(MODE[mode]);
   }
 
-  if (gap) {
-    if (typeof gap === 'string') {
-      computedClass += ` grid ${GAP[gap]}`;
-    } else {
-      Object.keys(gap).forEach((key) => {
-        computedClass += ` grid ${GAPS[key][gap[key]]}`;
-      });
-    }
-  }
-
-  const compiledClass = classify([computedClass, className]);
+  const compiledClass = classify([...computedClasses, className]);
 
   switch (order) {
     case 'ordered':

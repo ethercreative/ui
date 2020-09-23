@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const directions = ['row', 'row-reverse', 'col', 'col-reverse'] as const;
 type DIRECTIONS = keyof { [key in typeof directions[number]]: string };
@@ -240,70 +241,18 @@ const Flex: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = 'flex';
-
-  if (direction) {
-    if (typeof direction === 'string') {
-      computedClass += ` ${DIRECTION[direction]}`;
-    } else {
-      Object.keys(direction).forEach((key) => {
-        computedClass += ` ${DIRECTIONS[key][direction[key]]}`;
-      });
-    }
-  }
-
-  if (wrap) {
-    if (typeof wrap === 'string') {
-      computedClass += ` ${WRAP[wrap]}`;
-    } else {
-      Object.keys(wrap).forEach((key) => {
-        computedClass += ` ${WRAPS[key][wrap[key]]}`;
-      });
-    }
-  }
-
-  if (alignX) {
-    if (typeof alignX === 'string') {
-      computedClass += ` ${ALIGN_X[alignX]}`;
-    } else {
-      Object.keys(alignX).forEach((key) => {
-        computedClass += ` ${ALIGNS_X[key][alignX[key]]}`;
-      });
-    }
-  }
-
-  if (alignY) {
-    if (typeof alignY === 'string') {
-      computedClass += ` ${ALIGN_Y[alignY]}`;
-    } else {
-      Object.keys(alignY).forEach((key) => {
-        computedClass += ` ${ALIGNS_Y[key][alignY[key]]}`;
-      });
-    }
-  }
-
-  if (spaceX) {
-    if (typeof spaceX === 'string') {
-      computedClass += ` ${SPACE_X[spaceX]}`;
-    } else {
-      Object.keys(spaceX).forEach((key) => {
-        computedClass += ` ${SPACES_X[key][spaceX[key]]}`;
-      });
-    }
-  }
-
-  if (spaceY) {
-    if (typeof spaceY === 'string') {
-      computedClass += ` ${SPACE_Y[spaceY]}`;
-    } else {
-      Object.keys(spaceY).forEach((key) => {
-        computedClass += ` ${SPACES_Y[key][spaceY[key]]}`;
-      });
-    }
-  }
+  const computedClasses: (string | undefined)[] = [
+    'flex',
+    computeClass(direction, DIRECTION, DIRECTIONS),
+    computeClass(wrap, WRAP, WRAPS),
+    computeClass(alignX, ALIGN_X, ALIGNS_X),
+    computeClass(alignY, ALIGN_Y, ALIGNS_Y),
+    computeClass(spaceX, SPACE_X, SPACES_X),
+    computeClass(spaceY, SPACE_Y, SPACES_Y),
+  ];
 
   return (
-    <div className={classify([computedClass, className])} style={style}>
+    <div className={classify([...computedClasses, className])} style={style}>
       {children}
     </div>
   );

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const paddings = [
   '0',
@@ -573,150 +574,25 @@ const Space: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = '';
-
-  if (padding) {
-    if (typeof padding === 'string') {
-      computedClass += ` ${PADDING[padding]}`;
-    } else {
-      Object.keys(padding).forEach((key) => {
-        computedClass += ` ${PADDINGS[key][padding[key]]}`;
-      });
-    }
-  }
-
-  if (paddingX) {
-    if (typeof paddingX === 'string') {
-      computedClass += ` ${PADDING_X[paddingX]}`;
-    } else {
-      Object.keys(paddingX).forEach((key) => {
-        computedClass += ` ${PADDINGS_X[key][paddingX[key]]}`;
-      });
-    }
-  }
-
-  if (paddingY) {
-    if (typeof paddingY === 'string') {
-      computedClass += ` ${PADDING_Y[paddingY]}`;
-    } else {
-      Object.keys(paddingY).forEach((key) => {
-        computedClass += ` ${PADDINGS_Y[key][paddingY[key]]}`;
-      });
-    }
-  }
-
-  if (paddingLeft) {
-    if (typeof paddingLeft === 'string') {
-      computedClass += ` ${PADDING_LEFT[paddingLeft]}`;
-    } else {
-      Object.keys(paddingLeft).forEach((key) => {
-        computedClass += ` ${PADDINGS_LEFT[key][paddingLeft[key]]}`;
-      });
-    }
-  }
-
-  if (paddingRight) {
-    if (typeof paddingRight === 'string') {
-      computedClass += ` ${PADDING_RIGHT[paddingRight]}`;
-    } else {
-      Object.keys(paddingRight).forEach((key) => {
-        computedClass += ` ${PADDINGS_RIGHT[key][paddingRight[key]]}`;
-      });
-    }
-  }
-
-  if (paddingTop) {
-    if (typeof paddingTop === 'string') {
-      computedClass += ` ${PADDING_TOP[paddingTop]}`;
-    } else {
-      Object.keys(paddingTop).forEach((key) => {
-        computedClass += ` ${PADDINGS_TOP[key][paddingTop[key]]}`;
-      });
-    }
-  }
-
-  if (paddingBottom) {
-    if (typeof paddingBottom === 'string') {
-      computedClass += ` ${PADDING_BOTTOM[paddingBottom]}`;
-    } else {
-      Object.keys(paddingBottom).forEach((key) => {
-        computedClass += ` ${PADDINGS_BOTTOM[key][paddingBottom[key]]}`;
-      });
-    }
-  }
-
-  if (margin) {
-    if (typeof margin === 'string') {
-      computedClass += ` ${MARGIN[margin]}`;
-    } else {
-      Object.keys(margin).forEach((key) => {
-        computedClass += ` ${MARGINS[key][margin[key]]}`;
-      });
-    }
-  }
-
-  if (marginX) {
-    if (typeof marginX === 'string') {
-      computedClass += ` ${MARGIN_X[marginX]}`;
-    } else {
-      Object.keys(marginX).forEach((key) => {
-        computedClass += ` ${MARGINS_X[key][marginX[key]]}`;
-      });
-    }
-  }
-
-  if (marginY) {
-    if (typeof marginY === 'string') {
-      computedClass += ` ${MARGIN_Y[marginY]}`;
-    } else {
-      Object.keys(marginY).forEach((key) => {
-        computedClass += ` ${MARGINS_Y[key][marginY[key]]}`;
-      });
-    }
-  }
-
-  if (marginLeft) {
-    if (typeof marginLeft === 'string') {
-      computedClass += ` ${MARGIN_LEFT[marginLeft]}`;
-    } else {
-      Object.keys(marginLeft).forEach((key) => {
-        computedClass += ` ${MARGINS_LEFT[key][marginLeft[key]]}`;
-      });
-    }
-  }
-
-  if (marginRight) {
-    if (typeof marginRight === 'string') {
-      computedClass += ` ${MARGIN_RIGHT[marginRight]}`;
-    } else {
-      Object.keys(marginRight).forEach((key) => {
-        computedClass += ` ${MARGINS_RIGHT[key][marginRight[key]]}`;
-      });
-    }
-  }
-
-  if (marginTop) {
-    if (typeof marginTop === 'string') {
-      computedClass += ` ${MARGIN_TOP[marginTop]}`;
-    } else {
-      Object.keys(marginTop).forEach((key) => {
-        computedClass += ` ${MARGINS_TOP[key][marginTop[key]]}`;
-      });
-    }
-  }
-
-  if (marginBottom) {
-    if (typeof marginBottom === 'string') {
-      computedClass += ` ${MARGIN_BOTTOM[marginBottom]}`;
-    } else {
-      Object.keys(marginBottom).forEach((key) => {
-        computedClass += ` ${MARGINS_BOTTOM[key][marginBottom[key]]}`;
-      });
-    }
-  }
+  const computedClasses: (string | undefined)[] = [
+    computeClass(padding, PADDING, PADDINGS),
+    computeClass(paddingX, PADDING_X, PADDINGS_X),
+    computeClass(paddingY, PADDING_Y, PADDINGS_Y),
+    computeClass(paddingLeft, PADDING_LEFT, PADDINGS_LEFT),
+    computeClass(paddingRight, PADDING_RIGHT, PADDINGS_RIGHT),
+    computeClass(paddingTop, PADDING_TOP, PADDINGS_TOP),
+    computeClass(paddingBottom, PADDING_BOTTOM, PADDINGS_BOTTOM),
+    computeClass(margin, MARGIN, MARGINS),
+    computeClass(marginX, MARGIN_X, MARGINS_X),
+    computeClass(marginY, MARGIN_Y, MARGINS_Y),
+    computeClass(marginLeft, MARGIN_LEFT, MARGINS_LEFT),
+    computeClass(marginRight, MARGIN_RIGHT, MARGINS_RIGHT),
+    computeClass(marginTop, MARGIN_TOP, MARGINS_TOP),
+    computeClass(marginBottom, MARGIN_BOTTOM, MARGINS_BOTTOM),
+  ];
 
   return (
-    <div className={classify([computedClass, className])} style={style}>
+    <div className={classify([...computedClasses, className])} style={style}>
       {children}
     </div>
   );

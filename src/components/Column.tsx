@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const spans = [
   '1',
@@ -109,30 +110,13 @@ const Column: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = '';
-
-  if (span) {
-    if (typeof span === 'string') {
-      computedClass += ` ${SPAN[span]}`;
-    } else {
-      Object.keys(span).forEach((key) => {
-        computedClass += ` ${SPANS[key][span[key]]}`;
-      });
-    }
-  }
-
-  if (start) {
-    if (typeof start === 'string') {
-      computedClass += ` ${START[start]}`;
-    } else {
-      Object.keys(start).forEach((key) => {
-        computedClass += ` ${STARTS[key][start[key]]}`;
-      });
-    }
-  }
+  const computedClasses: (string | undefined)[] = [
+    computeClass(span, SPAN, SPANS),
+    computeClass(start, START, STARTS),
+  ];
 
   return (
-    <div className={classify([computedClass, className])} style={style}>
+    <div className={classify([...computedClasses, className])} style={style}>
       {children}
     </div>
   );

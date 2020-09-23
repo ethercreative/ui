@@ -14,6 +14,7 @@ import {
   TRACKINGS,
   trackings,
 } from '../helpers/text';
+import { computeClass } from '../helpers/computeClass';
 
 const SIZE: {
   [key: string]: string;
@@ -180,60 +181,16 @@ const Text: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = '';
-
-  if (size) {
-    if (typeof size === 'string') {
-      computedClass += ` ${SIZE[size]}`;
-    } else {
-      Object.keys(size).forEach((key) => {
-        computedClass += ` ${SIZES[key][size[key]]}`;
-      });
-    }
-  }
-
-  if (weight) {
-    if (typeof weight === 'string') {
-      computedClass += ` ${WEIGHT[weight]}`;
-    } else {
-      Object.keys(weight).forEach((key) => {
-        computedClass += ` ${WEIGHTS[key][weight[key]]}`;
-      });
-    }
-  }
-
-  if (align) {
-    if (typeof align === 'string') {
-      computedClass += ` ${ALIGN[align]}`;
-    } else {
-      Object.keys(align).forEach((key) => {
-        computedClass += ` ${ALIGNS[key][align[key]]}`;
-      });
-    }
-  }
-
-  if (leading) {
-    if (typeof leading === 'string') {
-      computedClass += ` ${LEADING[leading]}`;
-    } else {
-      Object.keys(leading).forEach((key) => {
-        computedClass += ` ${LEADINGS[key][leading[key]]}`;
-      });
-    }
-  }
-
-  if (tracking) {
-    if (typeof tracking === 'string') {
-      computedClass += ` ${TRACKING[tracking]}`;
-    } else {
-      Object.keys(tracking).forEach((key) => {
-        computedClass += ` ${TRACKINGS[key][tracking[key]]}`;
-      });
-    }
-  }
+  const computedClasses: (string | undefined)[] = [
+    computeClass(size, SIZE, SIZES),
+    computeClass(weight, WEIGHT, WEIGHTS),
+    computeClass(align, ALIGN, ALIGNS),
+    computeClass(leading, LEADING, LEADINGS),
+    computeClass(tracking, TRACKING, TRACKINGS),
+  ];
 
   return (
-    <p className={classify([computedClass, className])} style={style}>
+    <p className={classify([...computedClasses, className])} style={style}>
       {children}
     </p>
   );

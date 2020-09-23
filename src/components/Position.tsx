@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const modes = ['absolute', 'relative', 'fixed', 'sticky'] as const;
 type MODES = keyof { [key in typeof modes[number]]: string };
@@ -265,90 +266,19 @@ const Position: React.FC<Props> = ({
   style,
   children,
 }) => {
-  let computedClass = '';
-
-  if (mode) {
-    if (typeof mode === 'string') {
-      computedClass += ` ${MODE[mode]}`;
-    } else {
-      Object.keys(mode).forEach((key) => {
-        computedClass += ` ${MODES[key][mode[key]]}`;
-      });
-    }
-  }
-
-  if (inset) {
-    if (typeof inset === 'string') {
-      computedClass += ` ${INSET[inset]}`;
-    } else {
-      Object.keys(inset).forEach((key) => {
-        computedClass += ` ${INSETS[key][inset[key]]}`;
-      });
-    }
-  }
-
-  if (insetX) {
-    if (typeof insetX === 'string') {
-      computedClass += ` ${INSET_X[insetX]}`;
-    } else {
-      Object.keys(insetX).forEach((key) => {
-        computedClass += ` ${INSETS_X[key][insetX[key]]}`;
-      });
-    }
-  }
-
-  if (insetY) {
-    if (typeof insetY === 'string') {
-      computedClass += ` ${INSET_Y[insetY]}`;
-    } else {
-      Object.keys(insetY).forEach((key) => {
-        computedClass += ` ${INSETS_Y[key][insetY[key]]}`;
-      });
-    }
-  }
-
-  if (left) {
-    if (typeof left === 'string') {
-      computedClass += ` ${LEFT[left]}`;
-    } else {
-      Object.keys(left).forEach((key) => {
-        computedClass += ` ${LEFTS[key][left[key]]}`;
-      });
-    }
-  }
-
-  if (right) {
-    if (typeof right === 'string') {
-      computedClass += ` ${RIGHT[right]}`;
-    } else {
-      Object.keys(right).forEach((key) => {
-        computedClass += ` ${RIGHTS[key][right[key]]}`;
-      });
-    }
-  }
-
-  if (top) {
-    if (typeof top === 'string') {
-      computedClass += ` ${TOP[top]}`;
-    } else {
-      Object.keys(top).forEach((key) => {
-        computedClass += ` ${TOPS[key][top[key]]}`;
-      });
-    }
-  }
-
-  if (bottom) {
-    if (typeof bottom === 'string') {
-      computedClass += ` ${BOTTOM[bottom]}`;
-    } else {
-      Object.keys(bottom).forEach((key) => {
-        computedClass += ` ${BOTTOMS[key][bottom[key]]}`;
-      });
-    }
-  }
+  const computedClasses: (string | undefined)[] = [
+    computeClass(mode, MODE, MODES),
+    computeClass(inset, INSET, INSETS),
+    computeClass(insetX, INSET_X, INSETS_X),
+    computeClass(insetY, INSET_Y, INSETS_Y),
+    computeClass(left, LEFT, LEFTS),
+    computeClass(right, RIGHT, RIGHTS),
+    computeClass(top, TOP, TOPS),
+    computeClass(bottom, BOTTOM, BOTTOMS),
+  ];
 
   return (
-    <div className={classify([computedClass, className])} style={style}>
+    <div className={classify([...computedClasses, className])} style={style}>
       {children}
     </div>
   );

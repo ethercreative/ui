@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 const modes = ['hidden', 'block', 'flex'] as const;
 type MODES = keyof { [key in typeof modes[number]]: string };
@@ -40,20 +41,10 @@ interface Props {
 }
 
 const Visible: React.FC<Props> = ({ mode, className, style, children }) => {
-  let computedClass = '';
-
-  if (mode) {
-    if (typeof mode === 'string') {
-      computedClass += ` ${MODE[mode]}`;
-    } else {
-      Object.keys(mode).forEach((key) => {
-        computedClass += ` ${MODES[key][mode[key]]}`;
-      });
-    }
-  }
+  const computedClasses = [computeClass(mode, MODE, MODES)];
 
   return (
-    <div className={classify([computedClass, className])} style={style}>
+    <div className={classify([...computedClasses, className])} style={style}>
       {children}
     </div>
   );
