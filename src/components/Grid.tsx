@@ -161,7 +161,7 @@ const Grid: React.FC<Props> = ({
     'grid',
     computeClass(gap, GAP, GAPS),
     computeClass(gapX, GAP_X, GAPS_X),
-    computeClass(gapY, GAP, GAPS_Y),
+    computeClass(gapY, GAP_Y, GAPS_Y),
   ];
 
   if (columns) {
