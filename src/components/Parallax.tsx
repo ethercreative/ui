@@ -190,7 +190,7 @@ const Parallax: React.FC<Props> = ({
         style={{
           animation: aboveFold
             ? 'animateIn 350ms cubic-bezier(0.61, 1, 0.88, 1) forwards'
-            : '',
+            : undefined,
         }}
       >
         <div
