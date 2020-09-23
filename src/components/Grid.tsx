@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const COLUMN = {
   '1': 'grid-cols-1',
@@ -58,17 +53,19 @@ const GAP: {
   [key: string]: string;
 } = {};
 
-const GAPS: BreakpointClasses = { ...defaultBreakpoints };
+const GAPS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 gaps.forEach((gap) => {
   const prefix = 'gap';
   GAP[gap] = `${prefix}-${gap}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!GAPS[breakpoint]) {
-      GAPS[breakpoint] = {};
-    }
-
     GAPS[breakpoint][gap] = `${breakpoint}:${prefix}-${gap}`;
   });
 });
@@ -77,17 +74,19 @@ const GAP_X: {
   [key: string]: string;
 } = {};
 
-const GAPS_X: BreakpointClasses = { ...defaultBreakpoints };
+const GAPS_X: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 gaps.forEach((gap) => {
   const prefix = 'gap-x';
   GAP_X[gap] = `${prefix}-${gap}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!GAPS_X[breakpoint]) {
-      GAPS_X[breakpoint] = {};
-    }
-
     GAPS_X[breakpoint][gap] = `${breakpoint}:${prefix}-${gap}`;
   });
 });
@@ -96,17 +95,19 @@ const GAP_Y: {
   [key: string]: string;
 } = {};
 
-const GAPS_Y: BreakpointClasses = { ...defaultBreakpoints };
+const GAPS_Y: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 gaps.forEach((gap) => {
   const prefix = 'gap-y';
   GAP_Y[gap] = `${prefix}-${gap}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!GAPS_Y[breakpoint]) {
-      GAPS_Y[breakpoint] = {};
-    }
-
     GAPS_Y[breakpoint][gap] = `${breakpoint}:${prefix}-${gap}`;
   });
 });

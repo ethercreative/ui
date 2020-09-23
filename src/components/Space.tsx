@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const paddings = [
   '0',
@@ -34,17 +29,19 @@ const PADDING: {
   [key: string]: string;
 } = {};
 
-const PADDINGS: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'p';
   PADDING[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS[breakpoint]) {
-      PADDINGS[breakpoint] = {};
-    }
-
     PADDINGS[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -53,17 +50,19 @@ const PADDING_X: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_X: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS_X: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'px';
   PADDING_X[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS_X[breakpoint]) {
-      PADDINGS_X[breakpoint] = {};
-    }
-
     PADDINGS_X[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -72,17 +71,19 @@ const PADDING_Y: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_Y: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS_Y: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'py';
   PADDING_Y[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS_Y[breakpoint]) {
-      PADDINGS_Y[breakpoint] = {};
-    }
-
     PADDINGS_Y[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -91,17 +92,19 @@ const PADDING_LEFT: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_LEFT: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS_LEFT: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'pl';
   PADDING_LEFT[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS_LEFT[breakpoint]) {
-      PADDINGS_LEFT[breakpoint] = {};
-    }
-
     PADDINGS_LEFT[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -110,17 +113,19 @@ const PADDING_RIGHT: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_RIGHT: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS_RIGHT: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'pr';
   PADDING_RIGHT[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS_RIGHT[breakpoint]) {
-      PADDINGS_RIGHT[breakpoint] = {};
-    }
-
     PADDINGS_RIGHT[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -129,17 +134,19 @@ const PADDING_TOP: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_TOP: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS_TOP: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'pt';
   PADDING_TOP[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS_TOP[breakpoint]) {
-      PADDINGS_TOP[breakpoint] = {};
-    }
-
     PADDINGS_TOP[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -148,17 +155,19 @@ const PADDING_BOTTOM: {
   [key: string]: string;
 } = {};
 
-const PADDINGS_BOTTOM: BreakpointClasses = { ...defaultBreakpoints };
+const PADDINGS_BOTTOM: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 paddings.forEach((padding) => {
   const prefix = 'pb';
   PADDING_BOTTOM[padding] = `${prefix}-${padding}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!PADDINGS_BOTTOM[breakpoint]) {
-      PADDINGS_BOTTOM[breakpoint] = {};
-    }
-
     PADDINGS_BOTTOM[breakpoint][padding] = `${breakpoint}:${prefix}-${padding}`;
   });
 });
@@ -208,7 +217,13 @@ const MARGIN: {
   [key: string]: string;
 } = {};
 
-const MARGINS: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'm';
@@ -220,10 +235,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS[breakpoint]) {
-      MARGINS[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {
@@ -236,7 +247,13 @@ const MARGIN_X: {
   [key: string]: string;
 } = {};
 
-const MARGINS_X: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS_X: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'mx';
@@ -248,10 +265,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_X[breakpoint]) {
-      MARGINS_X[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS_X[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {
@@ -264,7 +277,13 @@ const MARGIN_Y: {
   [key: string]: string;
 } = {};
 
-const MARGINS_Y: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS_Y: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'my';
@@ -276,10 +295,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_Y[breakpoint]) {
-      MARGINS_Y[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS_Y[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {
@@ -292,7 +307,13 @@ const MARGIN_LEFT: {
   [key: string]: string;
 } = {};
 
-const MARGINS_LEFT: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS_LEFT: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'ml';
@@ -304,10 +325,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_LEFT[breakpoint]) {
-      MARGINS_LEFT[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS_LEFT[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {
@@ -320,7 +337,13 @@ const MARGIN_RIGHT: {
   [key: string]: string;
 } = {};
 
-const MARGINS_RIGHT: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS_RIGHT: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'mr';
@@ -332,10 +355,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_RIGHT[breakpoint]) {
-      MARGINS_RIGHT[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS_RIGHT[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {
@@ -348,7 +367,13 @@ const MARGIN_TOP: {
   [key: string]: string;
 } = {};
 
-const MARGINS_TOP: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS_TOP: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'mt';
@@ -360,10 +385,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_TOP[breakpoint]) {
-      MARGINS_TOP[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS_TOP[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {
@@ -376,7 +397,13 @@ const MARGIN_BOTTOM: {
   [key: string]: string;
 } = {};
 
-const MARGINS_BOTTOM: BreakpointClasses = { ...defaultBreakpoints };
+const MARGINS_BOTTOM: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 margins.forEach((margin) => {
   const prefix = 'mb';
@@ -388,10 +415,6 @@ margins.forEach((margin) => {
   }
 
   breakpoints.forEach((breakpoint) => {
-    if (!MARGINS_BOTTOM[breakpoint]) {
-      MARGINS_BOTTOM[breakpoint] = {};
-    }
-
     if (margin.includes('-')) {
       MARGINS_BOTTOM[breakpoint][margin] = `${breakpoint}:-${prefix}-${margin}`;
     } else {

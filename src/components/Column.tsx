@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const spans = [
   '1',
@@ -28,17 +23,19 @@ const SPAN: {
   [key: string]: string;
 } = {};
 
-const SPANS: BreakpointClasses = { ...defaultBreakpoints };
+const SPANS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 spans.forEach((span) => {
   const prefix = 'col-span';
   SPAN[span] = `${prefix}-${span}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!SPANS[breakpoint]) {
-      SPANS[breakpoint] = {};
-    }
-
     SPANS[breakpoint][span] = `${breakpoint}:${prefix}-${span}`;
   });
 });
@@ -65,17 +62,19 @@ const START: {
   [key: string]: string;
 } = {};
 
-const STARTS: BreakpointClasses = { ...defaultBreakpoints };
+const STARTS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 starts.forEach((start) => {
   const prefix = 'col-start';
   START[start] = `${prefix}-${start}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!STARTS[breakpoint]) {
-      STARTS[breakpoint] = {};
-    }
-
     STARTS[breakpoint][start] = `${breakpoint}:${prefix}-${start}`;
   });
 });

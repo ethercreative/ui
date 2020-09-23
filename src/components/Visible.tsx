@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const modes = ['hidden', 'block', 'flex'] as const;
 type MODES = keyof { [key in typeof modes[number]]: string };
@@ -14,16 +9,18 @@ const MODE: {
   [key: string]: string;
 } = {};
 
-const MODES: BreakpointClasses = { ...defaultBreakpoints };
+const MODES: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 modes.forEach((mode) => {
   MODE[mode] = mode;
 
   breakpoints.forEach((breakpoint) => {
-    if (!MODES[breakpoint]) {
-      MODES[breakpoint] = {};
-    }
-
     MODES[breakpoint][mode] = `${breakpoint}:${mode}`;
   });
 });

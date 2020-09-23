@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 import {
   fontWeights,
@@ -33,17 +28,19 @@ const SIZE: {
   [key: string]: string;
 } = {};
 
-const SIZES: BreakpointClasses = { ...defaultBreakpoints };
+const SIZES: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 textSizes.forEach((size) => {
   const prefix = 'text';
   SIZE[size] = `${prefix}-${size}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!SIZES[breakpoint]) {
-      SIZES[breakpoint] = {};
-    }
-
     SIZES[breakpoint][size] = `${breakpoint}:${prefix}-${size}`;
   });
 });
@@ -52,17 +49,19 @@ const WEIGHT: {
   [key: string]: string;
 } = {};
 
-const WEIGHTS: BreakpointClasses = { ...defaultBreakpoints };
+const WEIGHTS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 fontWeights.forEach((weight) => {
   const prefix = 'font';
   WEIGHT[weight] = `${prefix}-${weight}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!WEIGHTS[breakpoint]) {
-      WEIGHTS[breakpoint] = {};
-    }
-
     WEIGHTS[breakpoint][weight] = `${breakpoint}:${prefix}-${weight}`;
   });
 });
@@ -71,17 +70,19 @@ const ALIGN: {
   [key: string]: string;
 } = {};
 
-const ALIGNS: BreakpointClasses = { ...defaultBreakpoints };
+const ALIGNS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 textAligns.forEach((align) => {
   const prefix = 'text';
   ALIGN[align] = `${prefix}-${align}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!ALIGNS[breakpoint]) {
-      ALIGNS[breakpoint] = {};
-    }
-
     ALIGNS[breakpoint][align] = `${breakpoint}:${prefix}-${align}`;
   });
 });
@@ -90,17 +91,19 @@ const LEADING: {
   [key: string]: string;
 } = {};
 
-const LEADINGS: BreakpointClasses = { ...defaultBreakpoints };
+const LEADINGS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 leadings.forEach((leading) => {
   const prefix = 'leading';
   LEADING[leading] = `${prefix}-${leading}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!LEADINGS[breakpoint]) {
-      LEADINGS[breakpoint] = {};
-    }
-
     LEADINGS[breakpoint][leading] = `${breakpoint}:${prefix}-${leading}`;
   });
 });
@@ -109,17 +112,19 @@ const TRACKING: {
   [key: string]: string;
 } = {};
 
-const TRACKINGS: BreakpointClasses = { ...defaultBreakpoints };
+const TRACKINGS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 trackings.forEach((tracking) => {
   const prefix = 'tracking';
   TRACKING[tracking] = `${prefix}-${tracking}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!TRACKINGS[breakpoint]) {
-      TRACKINGS[breakpoint] = {};
-    }
-
     TRACKINGS[breakpoint][tracking] = `${breakpoint}:${prefix}-${tracking}`;
   });
 });

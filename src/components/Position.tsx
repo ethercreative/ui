@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const modes = ['absolute', 'relative', 'fixed', 'sticky'] as const;
 type MODES = keyof { [key in typeof modes[number]]: string };
@@ -14,16 +9,18 @@ const MODE: {
   [key: string]: string;
 } = {};
 
-const MODES: BreakpointClasses = { ...defaultBreakpoints };
+const MODES: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 modes.forEach((mode) => {
   MODE[mode] = mode;
 
   breakpoints.forEach((breakpoint) => {
-    if (!MODES[breakpoint]) {
-      MODES[breakpoint] = {};
-    }
-
     MODES[breakpoint][mode] = `${breakpoint}:${mode}`;
   });
 });
@@ -35,17 +32,19 @@ const INSET: {
   [key: string]: string;
 } = {};
 
-const INSETS: BreakpointClasses = { ...defaultBreakpoints };
+const INSETS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'inset';
   INSET[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!INSETS[breakpoint]) {
-      INSETS[breakpoint] = {};
-    }
-
     INSETS[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });
@@ -54,17 +53,19 @@ const INSET_X: {
   [key: string]: string;
 } = {};
 
-const INSETS_X: BreakpointClasses = { ...defaultBreakpoints };
+const INSETS_X: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'inset-x';
   INSET_X[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!INSETS_X[breakpoint]) {
-      INSETS_X[breakpoint] = {};
-    }
-
     INSETS_X[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });
@@ -73,17 +74,19 @@ const INSET_Y: {
   [key: string]: string;
 } = {};
 
-const INSETS_Y: BreakpointClasses = { ...defaultBreakpoints };
+const INSETS_Y: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'inset-y';
   INSET_Y[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!INSETS_Y[breakpoint]) {
-      INSETS_Y[breakpoint] = {};
-    }
-
     INSETS_Y[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });
@@ -92,17 +95,19 @@ const LEFT: {
   [key: string]: string;
 } = {};
 
-const LEFTS: BreakpointClasses = { ...defaultBreakpoints };
+const LEFTS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'left';
   LEFT[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!LEFTS[breakpoint]) {
-      LEFTS[breakpoint] = {};
-    }
-
     LEFTS[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });
@@ -111,17 +116,19 @@ const RIGHT: {
   [key: string]: string;
 } = {};
 
-const RIGHTS: BreakpointClasses = { ...defaultBreakpoints };
+const RIGHTS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'right';
   RIGHT[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!RIGHTS[breakpoint]) {
-      RIGHTS[breakpoint] = {};
-    }
-
     RIGHTS[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });
@@ -130,17 +137,19 @@ const TOP: {
   [key: string]: string;
 } = {};
 
-const TOPS: BreakpointClasses = { ...defaultBreakpoints };
+const TOPS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'top';
   TOP[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!TOPS[breakpoint]) {
-      TOPS[breakpoint] = {};
-    }
-
     TOPS[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });
@@ -149,17 +158,19 @@ const BOTTOM: {
   [key: string]: string;
 } = {};
 
-const BOTTOMS: BreakpointClasses = { ...defaultBreakpoints };
+const BOTTOMS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 insets.forEach((inset) => {
   const prefix = 'bottom';
   BOTTOM[inset] = `${prefix}-${inset}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!BOTTOMS[breakpoint]) {
-      BOTTOMS[breakpoint] = {};
-    }
-
     BOTTOMS[breakpoint][inset] = `${breakpoint}:${prefix}-${inset}`;
   });
 });

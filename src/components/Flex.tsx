@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
-
-import {
-  BreakpointClasses,
-  breakpoints,
-  defaultBreakpoints,
-} from '../helpers/breakpoints';
+import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
 
 const directions = ['row', 'row-reverse', 'col', 'col-reverse'] as const;
 type DIRECTIONS = keyof { [key in typeof directions[number]]: string };
@@ -14,17 +9,19 @@ const DIRECTION: {
   [key: string]: string;
 } = {};
 
-const DIRECTIONS: BreakpointClasses = { ...defaultBreakpoints };
+const DIRECTIONS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 directions.forEach((direction) => {
   const prefix = 'flex';
   DIRECTION[direction] = `${prefix}-${direction}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!DIRECTIONS[breakpoint]) {
-      DIRECTIONS[breakpoint] = {};
-    }
-
     DIRECTIONS[breakpoint][direction] = `${breakpoint}:${prefix}-${direction}`;
   });
 });
@@ -36,17 +33,19 @@ const WRAP: {
   [key: string]: string;
 } = {};
 
-const WRAPS: BreakpointClasses = { ...defaultBreakpoints };
+const WRAPS: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 wraps.forEach((wrap) => {
   const prefix = 'flex';
   WRAP[wrap] = `${prefix}-${wrap}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!WRAPS[breakpoint]) {
-      WRAPS[breakpoint] = {};
-    }
-
     WRAPS[breakpoint][wrap] = `${breakpoint}:${prefix}-${wrap}`;
   });
 });
@@ -66,17 +65,19 @@ const ALIGN_X: {
   [key: string]: string;
 } = {};
 
-const ALIGNS_X: BreakpointClasses = { ...defaultBreakpoints };
+const ALIGNS_X: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 xAligns.forEach((align) => {
   const prefix = 'justify';
   ALIGN_X[align] = `${prefix}-${align}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!ALIGNS_X[breakpoint]) {
-      ALIGNS_X[breakpoint] = {};
-    }
-
     ALIGNS_X[breakpoint][align] = `${breakpoint}:${prefix}-${align}`;
   });
 });
@@ -88,17 +89,19 @@ const ALIGN_Y: {
   [key: string]: string;
 } = {};
 
-const ALIGNS_Y: BreakpointClasses = { ...defaultBreakpoints };
+const ALIGNS_Y: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 yAligns.forEach((align) => {
   const prefix = 'items';
   ALIGN_Y[align] = `${prefix}-${align}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!ALIGNS_Y[breakpoint]) {
-      ALIGNS_Y[breakpoint] = {};
-    }
-
     ALIGNS_Y[breakpoint][align] = `${breakpoint}:${prefix}-${align}`;
   });
 });
@@ -129,17 +132,19 @@ const SPACE_X: {
   [key: string]: string;
 } = {};
 
-const SPACES_X: BreakpointClasses = { ...defaultBreakpoints };
+const SPACES_X: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 spaces.forEach((space) => {
   const prefix = 'space-x';
   SPACE_X[space] = `${prefix}-${space}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!SPACE_X[breakpoint]) {
-      SPACES_X[breakpoint] = {};
-    }
-
     SPACES_X[breakpoint][space] = `${breakpoint}:${prefix}-${space}`;
   });
 });
@@ -148,17 +153,19 @@ const SPACE_Y: {
   [key: string]: string;
 } = {};
 
-const SPACES_Y: BreakpointClasses = { ...defaultBreakpoints };
+const SPACES_Y: BreakpointClasses = {
+  default: {},
+  sm: {},
+  md: {},
+  lg: {},
+  xl: {},
+};
 
 spaces.forEach((space) => {
   const prefix = 'space-y';
   SPACE_Y[space] = `${prefix}-${space}`;
 
   breakpoints.forEach((breakpoint) => {
-    if (!SPACES_Y[breakpoint]) {
-      SPACES_Y[breakpoint] = {};
-    }
-
     SPACES_Y[breakpoint][space] = `${breakpoint}:${prefix}-${space}`;
   });
 });

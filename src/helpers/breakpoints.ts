@@ -20,11 +20,3 @@ export type BreakpointClasses = {
 };
 
 export const breakpoints: Breakpoints = ['default', 'sm', 'md', 'lg', 'xl'];
-
-export const defaultBreakpoints = {
-  default: {},
-  sm: {},
-  md: {},
-  lg: {},
-  xl: {},
-};
