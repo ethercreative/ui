@@ -15,7 +15,7 @@ export const computeClass = (
     className = single[property];
   } else {
     Object.keys(property).forEach((key) => {
-      className = multiple[key][property[key]];
+      className += ` ${multiple[key][property[key]]}`;
     });
   }
 
