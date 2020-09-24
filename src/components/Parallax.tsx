@@ -202,7 +202,7 @@ const Parallax: React.FC<Props> = ({
         }}
       >
         <div
-          className='w-full h-full'
+          className='w-full h-full relative'
           style={{
             width:
               inner && (direction === 'left' || direction === 'right')
