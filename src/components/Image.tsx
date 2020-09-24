@@ -2,7 +2,13 @@ import * as React from 'react';
 import { classify } from '../helpers/classify';
 
 interface Props {
-  src: string;
+  src?: string;
+  srcSet: {
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+  };
   alt: string;
   loading?: 'eager' | 'lazy';
   width?: number | string;
@@ -13,8 +19,16 @@ interface Props {
   style?: React.HTMLAttributes<HTMLImageElement>['style'];
 }
 
+const breakpoints = {
+  sm: '640w',
+  md: '768w',
+  lg: '1024w',
+  xl: '1480w',
+};
+
 const Image: React.FC<Props> = ({
   src,
+  srcSet,
   alt,
   loading = 'lazy',
   width,
@@ -38,9 +52,18 @@ const Image: React.FC<Props> = ({
     computedClass += ' object-contain';
   }
 
+  let _srcSet = '';
+
+  Object.keys(breakpoints).forEach((key) => {
+    if (srcSet[key]) {
+      _srcSet += ` ${srcSet[breakpoints]} ${breakpoints[key]}`;
+    }
+  });
+
   return (
     <img
       src={src}
+      srcSet={_srcSet}
       alt={alt}
       loading={loading}
       decoding='async'
