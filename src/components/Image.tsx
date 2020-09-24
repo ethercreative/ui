@@ -3,7 +3,7 @@ import { classify } from '../helpers/classify';
 
 interface Props {
   src?: string;
-  srcSet: {
+  srcSet?: {
     sm?: string;
     md?: string;
     lg?: string;
