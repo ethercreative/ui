@@ -17,7 +17,6 @@ const Parallax: React.FC<Props> = ({
   const small = amount === 'small';
   const ref = React.useRef() as React.MutableRefObject<HTMLDivElement>;
   const [aboveFold, setAboveFold] = React.useState<boolean>(false);
-  let timeout: NodeJS.Timeout;
 
   const checkAboveFold = () => {
     const scrollY = window.scrollY;
@@ -76,7 +75,9 @@ const Parallax: React.FC<Props> = ({
       const top = elementBounds.top + scrollY;
       const bottom = top + height;
 
-      if (windowBottom >= top) {
+      ref.current.style.willChange = '';
+
+      if (windowBottom >= top && scrollY <= bottom) {
         let perc = scrollY / bottom;
 
         if (perc > 1) {
@@ -104,9 +105,6 @@ const Parallax: React.FC<Props> = ({
             break;
         }
       }
-
-      clearTimeout(timeout);
-      timeout = setTimeout(() => (ref.current.style.willChange = ''), 100);
     });
   };
 
@@ -134,6 +132,8 @@ const Parallax: React.FC<Props> = ({
 
       const top = elementBounds.top + scrollY;
       const bottom = top + height;
+
+      ref.current.style.willChange = '';
 
       if (windowBottom >= top && windowBottom <= bottom) {
         const perc = 1 - (windowBottom - top) / (bottom - top);
@@ -163,11 +163,8 @@ const Parallax: React.FC<Props> = ({
 
       if (windowBottom >= bottom) {
         ref.current.style.opacity = '1';
-        ref.current.style.transform = `translate3d(0, 0, 0)`;
+        ref.current.style.transform = 'translate3d(0, 0, 0)';
       }
-
-      clearTimeout(timeout);
-      timeout = setTimeout(() => (ref.current.style.willChange = ''), 100);
     });
   };
 
