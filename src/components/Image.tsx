@@ -19,13 +19,6 @@ interface Props {
   style?: React.HTMLAttributes<HTMLImageElement>['style'];
 }
 
-const breakpoints = {
-  sm: '640w',
-  md: '768w',
-  lg: '1024w',
-  xl: '1480w',
-};
-
 const Image: React.FC<Props> = ({
   src,
   srcSet,
@@ -54,11 +47,20 @@ const Image: React.FC<Props> = ({
 
   const _srcSet: string[] = [];
 
-  Object.keys(breakpoints).forEach((key) => {
-    if (srcSet[key]) {
-      _srcSet.push(`${srcSet[key]} ${breakpoints[key]}`);
-    }
-  });
+  if (srcSet) {
+    const breakpoints = {
+      sm: '640w',
+      md: '768w',
+      lg: '1024w',
+      xl: '1480w',
+    };
+
+    Object.keys(breakpoints).forEach((key) => {
+      if (srcSet[key]) {
+        _srcSet.push(`${srcSet[key]} ${breakpoints[key]}`);
+      }
+    });
+  }
 
   return (
     <img
