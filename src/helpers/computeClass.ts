@@ -9,8 +9,6 @@ export const computeClass = (
     return;
   }
 
-  console.log(property, single, multiple);
-
   let className = '';
 
   if (typeof property === 'string') {
