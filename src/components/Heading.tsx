@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { classify } from '../helpers/classify';
 import { BreakpointClasses, breakpoints } from '../helpers/breakpoints';
+import { computeClass } from '../helpers/computeClass';
 
 import {
   fontWeights,
@@ -14,7 +15,6 @@ import {
   TRACKINGS,
   trackings,
 } from '../helpers/text';
-import { computeClass } from '../helpers/computeClass';
 
 const LEVEL = {
   '1': '1',

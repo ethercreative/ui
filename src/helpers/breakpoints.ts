@@ -1,5 +1,6 @@
 export type Breakpoint = 'default' | 'sm' | 'md' | 'lg' | 'xl';
 export type Breakpoints = Breakpoint[];
+export const breakpoints: Breakpoints = ['default', 'sm', 'md', 'lg', 'xl'];
 
 export type BreakpointClasses = {
   default: {
@@ -18,5 +19,3 @@ export type BreakpointClasses = {
     [key: string]: string;
   };
 };
-
-export const breakpoints: Breakpoints = ['default', 'sm', 'md', 'lg', 'xl'];
