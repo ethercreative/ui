@@ -56,7 +56,7 @@ const Image: React.FC<Props> = ({
 
   Object.keys(breakpoints).forEach((key) => {
     if (srcSet[key]) {
-      _srcSet += ` ${srcSet[breakpoints]} ${breakpoints[key]}`;
+      _srcSet += ` ${srcSet[key]} ${breakpoints[key]}`;
     }
   });
 
