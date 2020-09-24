@@ -52,18 +52,18 @@ const Image: React.FC<Props> = ({
     computedClass += ' object-contain';
   }
 
-  let _srcSet = '';
+  const _srcSet: string[] = [];
 
   Object.keys(breakpoints).forEach((key) => {
     if (srcSet[key]) {
-      _srcSet += ` ${srcSet[key]} ${breakpoints[key]}`;
+      _srcSet.push(`${srcSet[key]} ${breakpoints[key]}`);
     }
   });
 
   return (
     <img
       src={src}
-      srcSet={_srcSet}
+      srcSet={_srcSet.join(', ') ?? undefined}
       alt={alt}
       loading={loading}
       decoding='async'
