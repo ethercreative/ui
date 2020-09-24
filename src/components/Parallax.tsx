@@ -31,7 +31,9 @@ const Parallax: React.FC<Props> = ({
 
     window.addEventListener('scroll', handleOuter);
     window.addEventListener('resize', handleOuter);
+
     handleOuter();
+    setTimeout(handleOuter, 100);
 
     return () => {
       window.removeEventListener('scroll', handleOuter);
@@ -43,7 +45,9 @@ const Parallax: React.FC<Props> = ({
     if (inner) {
       window.addEventListener('scroll', handleInner);
       window.addEventListener('resize', handleInner);
+
       handleInner();
+      setTimeout(handleInner, 100);
 
       return () => {
         window.removeEventListener('scroll', handleInner);
@@ -62,7 +66,7 @@ const Parallax: React.FC<Props> = ({
     requestAnimationFrame(() => {
       const windowBottom = window.scrollY + window.innerHeight;
       const elementBounds = ref.current.getBoundingClientRect();
-      const maxTransform = small ? 3 : 10;
+      const maxTransform = small ? 10 : 15;
 
       const height =
         elementBounds.height >= window.innerHeight
@@ -73,26 +77,30 @@ const Parallax: React.FC<Props> = ({
       const bottom = top + height;
 
       if (windowBottom >= top) {
-        const perc = 1 - (windowBottom - top) / (bottom - top);
+        let perc = scrollY / bottom;
+
+        if (perc > 1) {
+          perc = 1;
+        }
+
         const transform = maxTransform * perc;
-        const scale = small ? 1 : 2;
         ref.current.style.willChange = 'transform';
 
         switch (direction) {
           case 'left':
-            ref.current.style.transform = `scale(1.${scale}) translate3d(-${transform}%, 0, 0)`;
+            ref.current.style.transform = `translate3d(${transform}%, 0, 0)`;
             break;
 
           case 'right':
-            ref.current.style.transform = `scale(1.${scale}) translate3d(${transform}%, 0, 0)`;
+            ref.current.style.transform = `translate3d(-${transform}%, 0, 0)`;
             break;
 
           case 'top':
-            ref.current.style.transform = `scale(1.${scale}) translate3d(0, -${transform}%, 0)`;
+            ref.current.style.transform = `translate3d(0, ${transform}%, 0)`;
             break;
 
           case 'bottom':
-            ref.current.style.transform = `scale(1.${scale}) translate3d(0, ${transform}%, 0)`;
+            ref.current.style.transform = `translate3d(0, -${transform}%, 0)`;
             break;
         }
       }
@@ -195,7 +203,17 @@ const Parallax: React.FC<Props> = ({
       >
         <div
           className='w-full h-full'
-          style={{ opacity: aboveFold || inner ? 1 : 0 }}
+          style={{
+            width:
+              inner && (direction === 'left' || direction === 'right')
+                ? '120%'
+                : undefined,
+            height:
+              inner && (direction === 'top' || direction === 'bottom')
+                ? '120%'
+                : undefined,
+            opacity: aboveFold || inner ? 1 : 0,
+          }}
           ref={ref}
         >
           {children}
