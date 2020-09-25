@@ -22,7 +22,7 @@ interface Props {
 
 const Aspect: React.FC<Props> = ({ ratio, children }) => {
   const parts = ratio.split('/');
-  const _ratio = Number(parts[1]) / Number(parts[0]);
+  const _ratio = (Number(parts[1]) / Number(parts[0])) * 100;
 
   return (
     <div
