@@ -78,6 +78,7 @@ const List: React.FC<Props> = ({
   children,
 }) => {
   const computedClasses: (string | undefined)[] = [
+    'grid',
     computeClass(gap, GAP, GAPS),
   ];
 
