@@ -1,4 +1,5 @@
 export { default as Aspect } from './components/Aspect';
+export { default as Box } from './components/Box';
 export { default as Column } from './components/Column';
 export { default as Container } from './components/Container';
 export { default as Flex } from './components/Flex';
